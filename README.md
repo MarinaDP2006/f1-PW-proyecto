@@ -70,9 +70,3 @@ Este sistema hace que la aplicación sea rápida y responsive, mostrando al inst
 - **Información completa**: Datos detallados y actualizados de la Fórmula 1
 - **Diseño responsive**: Funciona perfectamente en computadoras, tablets y móviles
 - **Experiencia interactiva**: Explora y descubre información de manera dinámica
-
-## 🚀 ¡Comienza tu aventura en la F1!
-
-Navega por las diferentes secciones, descubre datos fascinantes sobre tus pilotos favoritos, analiza las especificaciones técnicas de los monoplazas más rápidos del mundo y conoce los circuitos donde se escriben las historias más emocionantes del automovilismo.
-
-¡Que empiece la carrera! 🏁🏆
