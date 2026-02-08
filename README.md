@@ -1,14 +1,14 @@
-# 🏁 F1 Memory Game
+# F1 Memory Game
 
 ¡Bienvenido al emocionante mundo de la Fórmula 1! Esta aplicación es un juego de memoria interactivo donde podrás explorar y aprender sobre los pilotos, autos y circuitos más icónicos de la Fórmula 1.
 
-## 🎮 ¿Qué es este proyecto?
+## ¿Qué es este proyecto?
 
 F1 Memory Game es una aplicación web que combina diversión y aprendizaje sobre el fascinante mundo de la Fórmula 1. Podrás navegar por diferentes secciones para descubrir información detallada sobre tus pilotos favoritos, los monoplazas más rápidos y los circuitos más desafiantes.
 
-## 🏎️ Componentes del Proyecto
+## Componentes del Proyecto
 
-### 👨‍🏁 Pilotos
+### Pilotos
 Explora la información de los pilotos más destacados de la F1:
 - **Max Verstappen** - El actual campeón mundial de Red Bull Racing
 - **Lewis Hamilton** - La leyenda de Mercedes con 7 campeonatos mundiales
@@ -22,7 +22,7 @@ Cada piloto incluye información como:
 - Nacionalidad
 - Estadísticas de carrera completas
 
-### 🏎️ Autos (Monoplazas)
+### Autos (Monoplazas)
 Descubre los monoplazas más avanzados de la temporada:
 - **RB20** - El dominante monoplaza de Red Bull Racing
 - **W15** - Las flechas plateadas de Mercedes-AMG F1
@@ -35,7 +35,7 @@ Información técnica que incluye:
 - Peso y potencia
 - Año de fabricación
 
-### 🏁 Circuitos
+### Circuitos
 Conoce los circuitos más legendarios de la F1:
 - **Mónaco** - El circuito urbano más glamoroso del mundo
 - **Monza** - El templo de la velocidad en Italia
@@ -49,7 +49,7 @@ Cada circuito presenta:
 - Capacidad de espectadores
 - Características especiales y nivel de dificultad
 
-## 🔧 Sistema de Datos en Memoria
+## Sistema de Datos en Memoria
 
 ### F1 Memory Data Service
 El corazón del proyecto es el **F1 Memory Data Service**, un sistema inteligente que:
@@ -64,9 +64,15 @@ El corazón del proyecto es el **F1 Memory Data Service**, un sistema inteligent
 
 Este sistema hace que la aplicación sea rápida y responsive, mostrando al instante toda la información que necesitas sobre el mundo de la F1.
 
-## 🌟 Características Principales
+## Características Principales
 
 - **Interfaz intuitiva**: Navegación simple y clara entre las diferentes secciones
 - **Información completa**: Datos detallados y actualizados de la Fórmula 1
 - **Diseño responsive**: Funciona perfectamente en computadoras, tablets y móviles
 - **Experiencia interactiva**: Explora y descubre información de manera dinámica
+
+## Comienza tu aventura en la F1
+
+Navega por las diferentes secciones, descubre datos fascinantes sobre tus pilotos favoritos, analiza las especificaciones técnicas de los monoplazas más rápidos del mundo y conoce los circuitos donde se escriben las historias más emocionantes del automovilismo.
+
+¡Que empiece la carrera!
