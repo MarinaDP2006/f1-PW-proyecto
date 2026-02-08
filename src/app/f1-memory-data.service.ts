@@ -263,9 +263,4 @@ export class InMemoryDataService implements InMemoryDbService {
 
     return { pilotos, autos, circuitos };
   }
-
-  // Método para generar IDs únicos
-  genId(collection: any[]): number {
-    return collection.length > 0 ? Math.max(...collection.map(item => +item.id)) + 1 : 1;
-  }
 }
