@@ -1,53 +1,53 @@
 import { Routes } from '@angular/router';
 import { Inicio } from './components/inicio/inicio';
-import { CharacterList } from './components/listaPersonaje/character-list';
-import { WeaponList } from './components/listaArmas/weapon-list';
-import { LocationList } from './components/listaLugares/location-list';
-import { CharacterForm } from './components/formPersonaje/character-form';
-import { CharacterDetail } from './components/detallesPersonaje/character-detail';
+import { DriverList } from './components/listaPilotos/driver-list';
+import { CarList } from './components/listaAutos/car-list';
+import { CircuitList } from './components/listaCircuitos/circuit-list';
+import { DriverForm } from './components/formPiloto/driver-form';
+import { DriverDetail } from './components/detallesPiloto/driver-detail';
 
-// Configuración de rutas de la aplicación MOTU Universe
+// Configuración de rutas de la aplicación F1 Universe
 export const routes: Routes = [
   // Ruta raíz - redirige al inicio
   {
     path: '',
     component: Inicio,
-    title: 'MOTU Universe - Inicio'
+    title: 'F1 Universe - Inicio'
   },
   {
     path: 'inicio',
     component: Inicio,
-    title: 'MOTU Universe - Inicio'
+    title: 'F1 Universe - Inicio'
   },
   {
-    path: 'characters',
-    component: CharacterList,
-    title: 'Personajes - MOTU Universe'
+    path: 'drivers',
+    component: DriverList,
+    title: 'Pilotos - F1 Universe'
   },
   {
-    path: 'character-detail/:id',
-    component: CharacterDetail,
-    title: 'Detalle del Personaje - MOTU Universe'
+    path: 'driver-detail/:id',
+    component: DriverDetail,
+    title: 'Detalle del Piloto - F1 Universe'
   },
   {
-    path: 'character-form',
-    component: CharacterForm,
-    title: 'Nuevo Personaje - MOTU Universe'
+    path: 'driver-form',
+    component: DriverForm,
+    title: 'Nuevo Piloto - F1 Universe'
   },
   {
-    path: 'character-form/:id',
-    component: CharacterForm,
-    title: 'Editar Personaje - MOTU Universe'
+    path: 'driver-form/:id',
+    component: DriverForm,
+    title: 'Editar Piloto - F1 Universe'
   },
   {
-    path: 'weapons',
-    component: WeaponList,
-    title: 'Armas - MOTU Universe'
+    path: 'cars',
+    component: CarList,
+    title: 'Autos - F1 Universe'
   },
   {
-    path: 'locations',
-    component: LocationList,
-    title: 'Lugares - MOTU Universe'
+    path: 'circuits',
+    component: CircuitList,
+    title: 'Circuitos - F1 Universe'
   },
   // Ruta wildcard: captura cualquier ruta no definida arriba. Redirige a la lista de personajes como página por defecto
   {

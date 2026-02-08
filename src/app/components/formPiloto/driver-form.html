@@ -1,0 +1,151 @@
+<div class="driver-form-container">
+  <div class="container">
+    <div class="form-card">
+      <div class="form-header">
+        <h1>{{ isEditMode() ? 'Editar Piloto' : 'Crear Nuevo Piloto' }}</h1>
+      </div>
+
+      <!-- Mensaje de carga -->
+      @if (loading()) {
+        <div class="loading-message">
+          <p>{{ isEditMode() ? 'Guardando cambios...' : 'Creando piloto...' }}</p>
+        </div>
+      }
+
+      <!-- Mensaje de error -->
+      @if (error()) {
+        <div class="error-message">
+          <p>{{ error() }}</p>
+        </div>
+      }
+
+      <div class="form-body">
+        <form [formGroup]="driverForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label class="form-label" for="nombre">Nombre del Piloto *</label>
+            <input
+              id="nombre"
+              type="text"
+              formControlName="nombre"
+              class="form-control"
+              [class.is-invalid]="driverForm.get('nombre')?.invalid && driverForm.get('nombre')?.touched"/>
+            @if (driverForm.get('nombre')?.invalid && driverForm.get('nombre')?.touched) {
+              <div class="invalid-feedback">
+                El nombre es obligatorio (mínimo 2 caracteres)
+              </div>
+            }
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="categoria">Categoría *</label>
+            <select
+              id="categoria"
+              formControlName="categoria"
+              class="form-select"
+              [class.is-invalid]="driverForm.get('categoria')?.invalid && driverForm.get('categoria')?.touched"
+            >
+              <option value="">Selecciona una categoría</option>
+              <option value="novato">Novato</option>
+              <option value="experimentado">Experimentado</option>
+              <option value="veterano">Veterano</option>
+              <option value="campeon">Campeón</option>
+            </select>
+            @if (driverForm.get('categoria')?.invalid && driverForm.get('categoria')?.touched) {
+              <div class="invalid-feedback">
+                Debes seleccionar una categoría
+              </div>
+            }
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="escuderia">Escudería *</label>
+            <select
+              id="escuderia"
+              formControlName="escuderia"
+              class="form-select"
+              [class.is-invalid]="driverForm.get('escuderia')?.invalid && driverForm.get('escuderia')?.touched"
+            >
+              <option value="">Selecciona una escudería</option>
+              <option value="mercedes">Mercedes</option>
+              <option value="ferrari">Ferrari</option>
+              <option value="red_bull">Red Bull</option>
+              <option value="mclaren">McLaren</option>
+              <option value="alpine">Alpine</option>
+            </select>
+            @if (driverForm.get('escuderia')?.invalid && driverForm.get('escuderia')?.touched) {
+              <div class="invalid-feedback">
+                Debes seleccionar una escudería
+              </div>
+            }
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="motor">Motor *</label>
+            <select
+              id="motor"
+              formControlName="motor"
+              class="form-select"
+              [class.is-invalid]="driverForm.get('motor')?.invalid && driverForm.get('motor')?.touched"
+            >
+              <option value="">Selecciona el motor</option>
+              <option value="mercedes">Mercedes</option>
+              <option value="ferrari">Ferrari</option>
+              <option value="renault">Renault</option>
+              <option value="honda">Honda</option>
+              <option value="red_bull_powertrains">Red Bull Powertrains</option>
+            </select>
+            @if (driverForm.get('motor')?.invalid && driverForm.get('motor')?.touched) {
+              <div class="invalid-feedback">
+                Debes seleccionar un motor
+              </div>
+            }
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="descripcion">Descripción</label>
+            <textarea
+              id="descripcion"
+              formControlName="descripcion"
+              class="form-control"
+              rows="4"
+              [class.is-invalid]="driverForm.get('descripcion')?.invalid && driverForm.get('descripcion')?.touched"
+              placeholder="Describe al piloto..."
+            ></textarea>
+            @if (driverForm.get('descripcion')?.invalid && driverForm.get('descripcion')?.touched) {
+              <div class="invalid-feedback">
+                La descripción es obligatoria (mínimo 10 caracteres)
+              </div>
+            }
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="urlImagen">URL de la Imagen</label>
+            <input
+              id="urlImagen"
+              type="text"
+              formControlName="urlImagen"
+              class="form-control"
+              [class.is-invalid]="driverForm.get('urlImagen')?.invalid && driverForm.get('urlImagen')?.touched"/>
+            @if (driverForm.get('urlImagen')?.invalid && driverForm.get('urlImagen')?.touched) {
+              <div class="invalid-feedback">
+                La URL de la imagen es obligatoria
+              </div>
+            }
+            <div class="form-text">
+              Introduce la URL de la imagen:
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" [disabled]="driverForm.invalid">
+              {{ isEditMode() ? 'Actualizar' : 'Crear' }} Piloto
+            </button>
+            <button type="button" class="btn btn-secondary" (click)="goBack()">
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

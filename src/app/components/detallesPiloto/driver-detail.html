@@ -1,0 +1,137 @@
+<div class="driver-detail-container">
+  <!-- Mensaje de carga -->
+  @if (loading()) {
+    <div class="loading-message">
+      <div class="spinner"></div>
+      <p>🏎️ Cargando detalles del piloto...</p>
+    </div>
+  }
+
+  <!-- Mensaje de error -->
+  @if (error()) {
+    <div class="error-message">
+      <p>❌ {{ error() }}</p>
+    </div>
+  }
+
+  @if (driver(); as pilot) {
+    <!-- Header con imagen de fondo -->
+    <div class="driver-header">
+      <div class="header-overlay"></div>
+      <div class="driver-main-info">
+        <div class="driver-image-container">
+          <img [src]="pilot.urlImagen"
+               [alt]="pilot.nombre"
+               [title]="pilot.nombre"
+               class="driver-main-image"
+               (error)="onImageError($event)" />
+          <div class="car-number-badge">{{ pilot.numeroCoche }}</div>
+        </div>
+        <div class="driver-name-section">
+          <h1 class="driver-name">{{ pilot.nombre }}</h1>
+          <div class="team-info">
+            <span class="team-name">{{ pilot.escuderia | titlecase }}</span>
+            <span class="nationality">🏁 {{ pilot.nacionalidad }}</span>
+          </div>
+          <p class="driver-description">{{ pilot.descripcion }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Estadísticas principales -->
+    <div class="stats-section">
+      <div class="stats-grid">
+        <div class="stat-card victories">
+          <div class="stat-icon">🏆</div>
+          <div class="stat-number">{{ pilot.victorias || 0 }}</div>
+          <div class="stat-label">Victorias</div>
+        </div>
+        <div class="stat-card podiums">
+          <div class="stat-icon">🥉</div>
+          <div class="stat-number">{{ pilot.podios || 0 }}</div>
+          <div class="stat-label">Podios</div>
+        </div>
+        <div class="stat-card poles">
+          <div class="stat-icon">🚩</div>
+          <div class="stat-number">{{ pilot.poles || 0 }}</div>
+          <div class="stat-label">Pole Positions</div>
+        </div>
+        <div class="stat-card points">
+          <div class="stat-icon">⭐</div>
+          <div class="stat-number">{{ pilot.puntos_carrera || 0 }}</div>
+          <div class="stat-label">Puntos Carrera</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Información detallada -->
+    <div class="info-section">
+      <div class="info-grid">
+        <div class="info-card category">
+          <div class="info-header">
+            <span class="info-icon">🏅</span>
+            <h3>Categoría</h3>
+          </div>
+          <div class="info-content">
+            <span class="category-badge {{ pilot.categoria }}">{{ pilot.categoria | titlecase }}</span>
+          </div>
+        </div>
+
+        <div class="info-card team">
+          <div class="info-header">
+            <span class="info-icon">🏎️</span>
+            <h3>Escudería</h3>
+          </div>
+          <div class="info-content">
+            <span class="team-badge" [class]="pilot.escuderia">{{ pilot.escuderia | titlecase }}</span>
+            <p class="info-detail">Motor: {{ pilot.motor | titlecase }}</p>
+          </div>
+        </div>
+
+        <div class="info-card performance">
+          <div class="info-header">
+            <span class="info-icon">⚡</span>
+            <h3>Rendimiento</h3>
+          </div>
+          <div class="info-content">
+            <div class="performance-item">
+              <span class="perf-label">Vueltas Rápidas:</span>
+              <span class="perf-value">{{ pilot.vueltas_rapidas || 0 }}</span>
+            </div>
+            <div class="performance-item">
+              <span class="perf-label">Experiencia:</span>
+              <span class="perf-value">{{ pilot.categoria | titlecase }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botones de acción -->
+    <div class="actions-section">
+      <button (click)="editDriver()" class="action-btn edit-btn">
+        <span class="btn-icon">✏️</span>
+        Editar Piloto
+      </button>
+      <button (click)="deleteDriver()" class="action-btn delete-btn">
+        <span class="btn-icon">🗑️</span>
+        Eliminar
+      </button>
+      <button (click)="goBack()" class="action-btn back-btn">
+        <span class="btn-icon">↩️</span>
+        Volver
+      </button>
+    </div>
+
+  } @else {
+    <div class="not-found">
+      <div class="not-found-icon">🔍</div>
+      <h2>Piloto no encontrado</h2>
+      <p>El piloto que buscas no existe en nuestra base de datos.</p>
+      <button (click)="goBack()" class="action-btn back-btn">
+        <span class="btn-icon">↩️</span>
+        Volver a la lista
+      </button>
+    </div>
+  }
+</div>

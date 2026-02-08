@@ -1,0 +1,139 @@
+/* Página de pilotos con diseño simple y claro */
+.driver-list-container {
+  background: linear-gradient(135deg, #dc2626, #ea580c);
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: white;
+  padding: 2rem;
+}
+
+.page-header p {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.drivers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.driver-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+.driver-image {
+  width: 100%;
+  height: 160px;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.driver-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.driver-info h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-align: center;
+}
+
+.driver-team {
+  background: linear-gradient(135deg, #dc2626, #ea580c);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 0.8rem;
+}
+
+.driver-nationality {
+  color: #374151;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.driver-number {
+  color: #6b7280;
+  font-size: 0.85rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.driver-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.stat {
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.driver-description {
+  color: #4b5563;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Mensajes de estado */
+.loading-message, .error-message, .no-results {
+  text-align: center;
+  padding: 3rem;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .driver-list-container {
+    padding: 1rem;
+  }
+
+  .drivers-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .page-header p {
+    font-size: 1.5rem;
+  }
+}

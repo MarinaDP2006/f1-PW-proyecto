@@ -1,0 +1,271 @@
+import { Injectable } from '@angular/core';
+import { InMemoryDbService } from 'angular-in-memory-web-api';
+import { Piloto, Auto, Circuito } from './components/interfaces/f1-types';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class InMemoryDataService implements InMemoryDbService {
+  // Crea la base de datos en memoria con datos de F1
+  createDb() {
+    const pilotos: Piloto[] = [
+      {
+        id: '1',
+        nombre: 'Max Verstappen',
+        descripcion: 'Actual campeón mundial de Fórmula 1, piloto de Red Bull Racing.',
+        urlImagen: 'images/pilotos/max.gif',
+        tipo: 'piloto',
+        categoria: 'campeon',
+        escuderia: 'red_bull',
+        motor: 'red_bull_powertrains',
+        nacionalidad: 'Países Bajos',
+        numeroCoche: 1,
+        victorias: 59,
+        podios: 104,
+        poles: 36,
+        vueltas_rapidas: 30,
+        puntos_carrera: 2995
+      },
+      {
+        id: '2',
+        nombre: 'Lewis Hamilton',
+        descripcion: 'Siete veces campeón mundial, leyenda de Mercedes.',
+        urlImagen: 'images/pilotos/lewis.gif',
+        tipo: 'piloto',
+        categoria: 'campeon',
+        escuderia: 'mercedes',
+        motor: 'mercedes',
+        nacionalidad: 'Reino Unido',
+        numeroCoche: 44,
+        victorias: 103,
+        podios: 198,
+        poles: 104,
+        vueltas_rapidas: 67,
+        puntos_carrera: 4647
+      },
+      {
+        id: '3',
+        nombre: 'Charles Leclerc',
+        descripcion: 'Piloto estrella de Ferrari, representante de Mónaco.',
+        urlImagen: 'images/pilotos/charles.gif',
+        tipo: 'piloto',
+        categoria: 'experimentado',
+        escuderia: 'ferrari',
+        motor: 'ferrari',
+        nacionalidad: 'Mónaco',
+        numeroCoche: 16,
+        victorias: 5,
+        podios: 29,
+        poles: 24,
+        vueltas_rapidas: 9,
+        puntos_carrera: 1225
+      },
+      {
+        id: '4',
+        nombre: 'Lando Norris',
+        descripcion: 'Talentoso piloto británico de McLaren, futuro prometedor.',
+        urlImagen: 'images/pilotos/lando.gif',
+        tipo: 'piloto',
+        categoria: 'experimentado',
+        escuderia: 'mclaren',
+        motor: 'mercedes',
+        nacionalidad: 'Reino Unido',
+        numeroCoche: 4,
+        victorias: 1,
+        podios: 13,
+        poles: 1,
+        vueltas_rapidas: 2,
+        puntos_carrera: 754
+      },
+      {
+        id: '5',
+        nombre: 'Fernando Alonso',
+        descripcion: 'Veterano español, dos veces campeón mundial con Aston Martin.',
+        urlImagen: 'images/pilotos/fernando.gif',
+        tipo: 'piloto',
+        categoria: 'veterano',
+        escuderia: 'aston_martin',
+        motor: 'mercedes',
+        nacionalidad: 'España',
+        numeroCoche: 14,
+        victorias: 32,
+        podios: 106,
+        poles: 22,
+        vueltas_rapidas: 23,
+        puntos_carrera: 2293
+      }
+    ];
+
+    const autos: Auto[] = [
+      {
+        id: '1',
+        nombre: 'RB20',
+        descripcion: 'Monoplaza dominante de Red Bull Racing para 2024.',
+        urlImagen: 'images/coches/redbull.jpg',
+        tipo: 'auto',
+        tipoAuto: 'monoplaza',
+        escuderia: 'red_bull',
+        motor: 'red_bull_powertrains',
+        piloto: 'Max Verstappen',
+        anioFabricacion: 2024,
+        chasis: 'Fibra de carbono',
+        peso: '798 kg',
+        potencia: '1000+ HP',
+        aerodinamica: ['Aleron delantero optimizado', 'DRS trasero', 'Suelo efecto']
+      },
+      {
+        id: '2',
+        nombre: 'W15',
+        descripcion: 'Mercedes-AMG F1 W15 E Performance, el monoplaza de las flechas plateadas.',
+        urlImagen: 'images/coches/mercedes.jpg',
+        tipo: 'auto',
+        tipoAuto: 'monoplaza',
+        escuderia: 'mercedes',
+        motor: 'mercedes',
+        piloto: 'Lewis Hamilton',
+        anioFabricacion: 2024,
+        chasis: 'Fibra de carbono',
+        peso: '798 kg',
+        potencia: '1000+ HP',
+        aerodinamica: ['Nariz estrecha', 'Pontones laterales', 'Aleron trasero ajustable']
+      },
+      {
+        id: '3',
+        nombre: 'SF-24',
+        descripcion: 'Scuderia Ferrari SF-24, el cavallino rampante de Maranello.',
+        urlImagen: 'images/coches/ferrari.jpg',
+        tipo: 'auto',
+        tipoAuto: 'monoplaza',
+        escuderia: 'ferrari',
+        motor: 'ferrari',
+        piloto: 'Charles Leclerc',
+        anioFabricacion: 2024,
+        chasis: 'Fibra de carbono',
+        peso: '798 kg',
+        potencia: '1000+ HP',
+        aerodinamica: ['Diseño italiano', 'Aerodinámica refinada', 'Motor Ferrari optimizado']
+      },
+      {
+        id: '4',
+        nombre: 'MCL38',
+        descripcion: 'McLaren MCL38, el papaya de Woking busca la gloria.',
+        urlImagen: 'images/coches/mclaren.jpg',
+        tipo: 'auto',
+        tipoAuto: 'monoplaza',
+        escuderia: 'mclaren',
+        motor: 'mercedes',
+        piloto: 'Lando Norris',
+        anioFabricacion: 2024,
+        chasis: 'Fibra de carbono',
+        peso: '798 kg',
+        potencia: '1000+ HP',
+        aerodinamica: ['Colores papaya distintivos', 'Aerodinámica McLaren', 'Motor Mercedes']
+      }
+    ];
+
+    const circuitos: Circuito[] = [
+      {
+        id: '1',
+        nombre: 'Circuito de Mónaco',
+        descripcion: 'El circuito más prestigioso y glamoroso de la F1, por las calles de Monte Carlo.',
+        urlImagen: 'images/circuitos/monaco.png',
+        tipo: 'circuito',
+        tipoCircuito: 'urbano',
+        escuderia: 'mercedes',
+        motor: 'mercedes',
+        nacionalidad: 'Mónaco',
+        longitud: '3.337 km',
+        curvas: 19,
+        record_vuelta: '1:12.909',
+        record_piloto: 'Lewis Hamilton',
+        capacidad_espectadores: 37000,
+        caracteristicas: ['Túnel icónico', 'Chicane de la Piscina', 'Curva Rascasse'],
+        dificultad: 'Muy Alta',
+        superficie: 'Asfalto urbano'
+      },
+      {
+        id: '2',
+        nombre: 'Autodromo Nazionale di Monza',
+        descripcion: 'El Templo de la Velocidad, casa del Gran Premio de Italia.',
+        urlImagen: 'images/circuitos/monza.jpg',
+        tipo: 'circuito',
+        tipoCircuito: 'permanente',
+        escuderia: 'ferrari',
+        motor: 'ferrari',
+        nacionalidad: 'Italia',
+        longitud: '5.793 km',
+        curvas: 11,
+        record_vuelta: '1:21.046',
+        record_piloto: 'Rubens Barrichello',
+        capacidad_espectadores: 113860,
+        caracteristicas: ['Recta de Monza', 'Chicane Roggia', 'Curva Parabolica'],
+        dificultad: 'Alta',
+        superficie: 'Asfalto especializado'
+      },
+      {
+        id: '3',
+        nombre: 'Silverstone Circuit',
+        descripcion: 'Hogar del Gran Premio de Gran Bretaña, cuna de la Fórmula 1.',
+        urlImagen: 'images/circuitos/silverstone.jpg',
+        tipo: 'circuito',
+        tipoCircuito: 'permanente',
+        escuderia: 'mercedes',
+        motor: 'mercedes',
+        nacionalidad: 'Reino Unido',
+        longitud: '5.891 km',
+        curvas: 18,
+        record_vuelta: '1:27.097',
+        record_piloto: 'Max Verstappen',
+        capacidad_espectadores: 150000,
+        caracteristicas: ['Copse Corner', 'Maggotts y Becketts', 'Stowe Corner'],
+        dificultad: 'Alta',
+        superficie: 'Asfalto británico'
+      },
+      {
+        id: '4',
+        nombre: 'Circuit de Spa-Francorchamps',
+        descripcion: 'El circuito más querido por pilotos, desafío belga en las Ardenas.',
+        urlImagen: 'images/circuitos/spa.jpg',
+        tipo: 'circuito',
+        tipoCircuito: 'permanente',
+        escuderia: 'red_bull',
+        motor: 'red_bull_powertrains',
+        nacionalidad: 'Bélgica',
+        longitud: '7.004 km',
+        curvas: 20,
+        record_vuelta: '1:46.286',
+        record_piloto: 'Valtteri Bottas',
+        capacidad_espectadores: 70000,
+        caracteristicas: ['Eau Rouge', 'Raidillon', 'Les Combes'],
+        dificultad: 'Muy Alta',
+        superficie: 'Asfalto con desniveles'
+      },
+      {
+        id: '5',
+        nombre: 'Marina Bay Street Circuit',
+        descripcion: 'Circuito nocturno espectacular de Singapur, bajo las luces de la ciudad.',
+        urlImagen: 'images/circuitos/marinabay.jpg',
+        tipo: 'circuito',
+        tipoCircuito: 'urbano',
+        escuderia: 'ferrari',
+        motor: 'ferrari',
+        nacionalidad: 'Singapur',
+        longitud: '5.063 km',
+        curvas: 23,
+        record_vuelta: '1:41.905',
+        record_piloto: 'Kevin Magnussen',
+        capacidad_espectadores: 80000,
+        caracteristicas: ['Carrera nocturna', 'Anderson Bridge', 'Singapore Sling'],
+        dificultad: 'Muy Alta',
+        superficie: 'Asfalto urbano nocturno'
+      }
+    ];
+
+    return { pilotos, autos, circuitos };
+  }
+
+  // Método para generar IDs únicos
+  genId(collection: any[]): number {
+    return collection.length > 0 ? Math.max(...collection.map(item => +item.id)) + 1 : 1;
+  }
+}

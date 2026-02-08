@@ -1,221 +1,141 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Personaje, Arma, Lugar } from './components/interfaces/motu-types';
+import { Piloto, Auto, Circuito } from './components/interfaces/f1-types';
 
-/**
- * Servicio de API simulada en memoria para desarrollo
- *
- * Implementa InMemoryDbService de Angular In-Memory Web API para
- * simular un backend completo durante el desarrollo, proporcionando:
- *
- * Funcionalidades principales:
- * - Base de datos completa en memoria
- * - Endpoints RESTful automáticos (GET, POST, PUT, DELETE)
- * - Datos seed predefinidos para todas las entidades
- * - Simulación de latencia de red
- * - IDs autogenerados para nuevos registros
- *
- * Endpoints disponibles:
- * - GET /api/personajes - Lista todos los personajes
- * - GET /api/personajes/:id - Obtiene un personaje específico
- * - POST /api/personajes - Crea un nuevo personaje
- * - PUT /api/personajes/:id - Actualiza un personaje
- * - DELETE /api/personajes/:id - Elimina un personaje
- * - Similar para /api/armas y /api/lugares
- *
- * @author Marina
- * @version 2.0
- * @see https://github.com/angular/angular/tree/main/packages/misc/angular-in-memory-web-api
- */
 @Injectable({
   providedIn: 'root',
 })
 export class InMemoryDataService implements InMemoryDbService {
   // Crea la base de datos en memoria con datos iniciales
   createDb() {
-    const personajes: Personaje[] = [
+    const pilotos: Piloto[] = [
       {
         id: '1',
-        nombre: 'He-Man',
-        descripcion: 'El héroe de Eternia, príncipe Adam.',
-        urlImagen: '/images/personajes/he-man.jpg',
-        tipo: 'personaje',
-        categoria: 'heroe',
-        faccion: 'buenos',
-        tipoPoder: 'natural',
-        origen: 'Eternia'
+        nombre: 'Lewis Hamilton',
+        descripcion: 'Siete veces campeón del mundo de Fórmula 1.',
+        urlImagen: '/images/pilotos/hamilton.jpg',
+        tipo: 'piloto',
+        categoria: 'campeon',
+        escuderia: 'mercedes',
+        motor: 'mercedes',
+        nacionalidad: 'Reino Unido'
       },
       {
         id: '2',
-        nombre: 'Skeletor',
-        descripcion: 'Señor de la Destrucción y tío del príncipe Adam, guerrero de Eternia como He-Man',
-        urlImagen: '/images/personajes/skeletor.jpg',
-        tipo: 'personaje',
-        categoria: 'villano',
-        faccion: 'malos',
-        tipoPoder: 'magia',
-        origen: 'Eternia'
+        nombre: 'Max Verstappen',
+        descripcion: 'Campeón del mundo vigente, piloto de Red Bull Racing.',
+        urlImagen: '/images/pilotos/verstappen.jpg',
+        tipo: 'piloto',
+        categoria: 'campeon',
+        escuderia: 'red_bull',
+        motor: 'red_bull_powertrains',
+        nacionalidad: 'Países Bajos'
       },
       {
         id: '3',
-        nombre: 'Teela',
-        descripcion: 'Capitana de la Guardia Real y nueva hechiera de Eternia.',
-        urlImagen: '/images/personajes/teela.jpg',
-        tipo: 'personaje',
-        categoria: 'heroe',
-        faccion: 'buenos',
-        tipoPoder: 'natural',
-        origen: 'Eternia'
+        nombre: 'Charles Leclerc',
+        descripcion: 'Piloto de Ferrari, talento joven de Mónaco.',
+        urlImagen: '/images/pilotos/leclerc.jpg',
+        tipo: 'piloto',
+        categoria: 'experimentado',
+        escuderia: 'ferrari',
+        motor: 'ferrari',
+        nacionalidad: 'Mónaco'
       },
       {
         id: '4',
-        nombre: 'Evil-Lyn',
-        descripcion: 'Hechicera malvada y lugarteniente de Skeletor. Busca la redención.',
-        urlImagen: '/images/personajes/evil-lyn.jpg',
-        tipo: 'personaje',
-        categoria: 'villano',
-        faccion: 'malos',
-        tipoPoder: 'magia',
-        origen: 'Eternia'
+        nombre: 'Lando Norris',
+        descripcion: 'Piloto británico de McLaren, conocido por su velocidad.',
+        urlImagen: '/images/pilotos/norris.jpg',
+        tipo: 'piloto',
+        categoria: 'experimentado',
+        escuderia: 'mclaren',
+        motor: 'mercedes',
+        nacionalidad: 'Reino Unido'
       },
       {
         id: '5',
-        nombre: 'Man-At-Arms',
-        descripcion: 'Maestro de armas e inventor del reino. Padre de Teela.',
-        urlImagen: '/images/personajes/man-at-arms.jpg',
-        tipo: 'personaje',
-        categoria: 'heroe',
-        faccion: 'buenos',
-        tipoPoder: 'tecnologia',
-        origen: 'Eternia'
-      },
-      {
-        id: '6',
-        nombre: 'Orko',
-        descripcion: 'Duende mágico de Trolla, amigo fiel de He-Man y maestro de la magia.',
-        urlImagen: '/images/personajes/orko.jpg',
-        tipo: 'personaje',
-        categoria: 'heroe',
-        faccion: 'buenos',
-        tipoPoder: 'magia',
-        origen: 'Trolla'
-      },
-      {
-        id: '7',
-        nombre: 'Battle Cat',
-        descripcion: 'Compañero de He-Man. Se transforma en Battle Cat por la espada. Leal a su maestro, es transporte y una poderosa bestia.',
-        urlImagen: '/images/personajes/battle-cat.jpg',
-        tipo: 'personaje',
-        categoria: 'heroe',
-        faccion: 'buenos',
-        tipoPoder: 'magia',
-        origen: 'Eternia'
-      },
-      {
-        id: '8',
-        nombre: 'Beast Man',
-        descripcion: 'Guerrero salvaje con poderes sobre las bestias. Aliado de Skeletor.',
-        urlImagen: '/images/personajes/beastMan.jpg',
-        tipo: 'personaje',
-        categoria: 'villano',
-        faccion: 'malos',
-        tipoPoder: 'natural',
-        origen: 'Eternia'
-      },
-      {
-        id: '9',
-        nombre: 'Trap Jaw',
-        descripcion: 'Cyborg malvado con mandíbula mecánica y múltiples armas integradas. Aliado temporal de Skeletor.',
-        urlImagen: '/images/personajes/trapJaw.jpg',
-        tipo: 'personaje',
-        categoria: 'villano',
-        faccion: 'malos',
-        tipoPoder: 'tecnologia',
-        origen: 'Eternia'
-      },
-      {
-        id: '10',
-        nombre: 'Tri-Klops',
-        descripcion: 'Guerrero de tres ojos con habilidades de visión especiales. Aliado temporal de Skeletor.',
-        urlImagen: '/images/personajes/triKlops.jpg',
-        tipo: 'personaje',
-        categoria: 'villano',
-        faccion: 'malos',
-        tipoPoder: 'tecnologia',
-        origen: 'Eternia'
+        nombre: 'Fernando Alonso',
+        descripcion: 'Bicampeón del mundo español, veterano de la F1.',
+        urlImagen: '/images/pilotos/alonso.jpg',
+        tipo: 'piloto',
+        categoria: 'veterano',
+        escuderia: 'aston_martin',
+        motor: 'mercedes',
+        nacionalidad: 'España'
       }
     ];
-    const armas: Arma[] = [
+    const autos: Auto[] = [
       {
         id: '11',
-        nombre: 'Espada del Poder',
-        descripcion: 'La espada que da poder a He-Man.',
-        urlImagen: '/images/armas/espada-poder.jpg',
-        tipo: 'arma',
-        tipoArma: 'espada',
-        faccion: 'buenos',
-        tipoPoder: 'magia',
-        origen: 'Eternia'
+        nombre: 'Mercedes W15',
+        descripcion: 'Monoplaza de Mercedes-AMG Petronas F1 Team.',
+        urlImagen: '/images/coches/mercedes-w15.jpg',
+        tipo: 'auto',
+        tipoAuto: 'monoplaza',
+        escuderia: 'mercedes',
+        motor: 'mercedes',
+        nacionalidad: 'Alemania'
       },
       {
         id: '12',
-        nombre: 'Bastón de Havoc',
-        descripcion: 'Bastón mágico de Skeletor.',
-        urlImagen: '/images/armas/baston.jpg',
-        tipo: 'arma',
-        tipoArma: 'baston',
-        faccion: 'malos',
-        tipoPoder: 'magia',
-        origen: 'Eternia'
+        nombre: 'Red Bull RB20',
+        descripcion: 'Monoplaza campeón de Red Bull Racing.',
+        urlImagen: '/images/coches/red-bull-rb20.jpg',
+        tipo: 'auto',
+        tipoAuto: 'monoplaza',
+        escuderia: 'red_bull',
+        motor: 'red_bull_powertrains',
+        nacionalidad: 'Austria'
       },
       {
         id: '13',
-        nombre: 'Escudo de Eternia',
-        descripcion: 'Escudo protector del reino de Eternia.',
-        urlImagen: '/images/armas/escudo.jpg',
-        tipo: 'arma',
-        tipoArma: 'escudo',
-        faccion: 'buenos',
-        tipoPoder: 'magia',
-        origen: 'Eternia'
+        nombre: 'Ferrari SF-24',
+        descripcion: 'El legendario monoplaza de la Scuderia Ferrari.',
+        urlImagen: '/images/coches/ferrari-sf24.jpg',
+        tipo: 'auto',
+        tipoAuto: 'monoplaza',
+        escuderia: 'ferrari',
+        motor: 'ferrari',
+        nacionalidad: 'Italia'
       }
     ];
-    const lugares: Lugar[] = [
+    const circuitos: Circuito[] = [
       {
         id: '14',
-        nombre: 'Castillo Grayskull',
-        descripcion: 'Fortaleza mística, fuente del poder de He-Man.',
-        urlImagen: '/images/lugares/greyskull.jpg',
-        tipo: 'lugar',
-        tipoLugar: 'castillo',
-        faccion: 'buenos',
-        tipoPoder: 'magia',
-        origen: 'Eternia'
+        nombre: 'Circuito de Mónaco',
+        descripcion: 'El circuito más glamuroso y desafiante de la F1.',
+        urlImagen: '/images/circuitos/monaco.jpg',
+        tipo: 'circuito',
+        tipoCircuito: 'urbano',
+        escuderia: 'ferrari',
+        motor: 'ferrari',
+        nacionalidad: 'Mónaco'
       },
       {
         id: '15',
-        nombre: 'Montaña Serpiente',
-        descripcion: 'Guarida de Skeletor.',
-        urlImagen: '/images/lugares/snake-mountain.jpg',
-        tipo: 'lugar',
-        tipoLugar: 'fortaleza',
-        faccion: 'malos',
-        tipoPoder: 'magia',
-        origen: 'Eternia'
+        nombre: 'Silverstone',
+        descripcion: 'El hogar del Gran Premio de Gran Bretaña.',
+        urlImagen: '/images/circuitos/silverstone.jpg',
+        tipo: 'circuito',
+        tipoCircuito: 'permanente',
+        escuderia: 'mercedes',
+        motor: 'mercedes',
+        nacionalidad: 'Reino Unido'
       },
       {
         id: '16',
-        nombre: 'Palacio Real',
-        descripcion: 'Sede del gobierno de Eternia.',
-        urlImagen: '/images/lugares/palacio-real.jpg',
-        tipo: 'lugar',
-        tipoLugar: 'palacio',
-        faccion: 'buenos',
-        tipoPoder: 'tecnologia',
-        origen: 'Eternia'
+        nombre: 'Spa-Francorchamps',
+        descripcion: 'Uno de los circuitos más históricos y desafiantes.',
+        urlImagen: '/images/circuitos/spa.jpg',
+        tipo: 'circuito',
+        tipoCircuito: 'permanente',
+        escuderia: 'red_bull',
+        motor: 'red_bull_powertrains',
+        nacionalidad: 'Bélgica'
       }
     ];
-    return {personajes, armas, lugares};
+    return {pilotos, autos, circuitos};
   }
 
 

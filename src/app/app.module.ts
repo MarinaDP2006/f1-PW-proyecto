@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 
 // Angular In-Memory Web API para simulación de backend
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
+import { InMemoryDataService } from './f1-memory-data.service';
 
 // Configuración de rutas
 import { routes } from './app.routes';
@@ -15,24 +15,23 @@ import { routes } from './app.routes';
 import { App } from './app';
 import { Inicio } from './components/inicio/inicio';
 import { Navbar } from './components/navbar/navbar';
-import { CharacterList } from './components/listaPersonaje/character-list';
-import { CharacterDetail } from './components/detallesPersonaje/character-detail';
-import { CharacterForm } from './components/formPersonaje/character-form';
-import { WeaponList } from './components/listaArmas/weapon-list';
-import { LocationList } from './components/listaLugares/location-list';
+import { DriverList } from './components/listaPilotos/driver-list';
+import { DriverDetail } from './components/detallesPiloto/driver-detail';
+import { DriverForm } from './components/formPiloto/driver-form';
+import { CarList } from './components/listaAutos/car-list';
+import { CircuitList } from './components/listaCircuitos/circuit-list';
 
 @NgModule({
   declarations: [
-    App,                // Componente raíz de la aplicación
-    Inicio,             // Página de inicio/dashboard
-    CharacterList,      // Lista de personajes con filtros
-    CharacterDetail,    // Vista detallada de personaje individual
-    CharacterForm,      // Formulario CRUD para personajes
-    WeaponList,         // Catálogo de armas del universo MOTU
-    LocationList,       // Directorio de lugares de Eternia
-    Navbar              // Barra de navegación principal
+    App,
+    Inicio,
+    DriverList,
+    DriverDetail,
+    DriverForm,
+    CarList,
+    CircuitList,
+    Navbar
   ],
-
   imports: [
     BrowserModule,
     ReactiveFormsModule,
@@ -58,6 +57,6 @@ import { LocationList } from './components/listaLugares/location-list';
 })
 export class AppModule {
   constructor() {
-    console.log('// MOTU Universe App Module initialized');
+    console.log('// App Module initialized');
   }
 }

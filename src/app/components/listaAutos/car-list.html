@@ -1,0 +1,34 @@
+<div class="car-list-container">
+  <header class="page-header">
+    <p>Los coches más avanzados tecnológicamente del planeta</p>
+  </header>
+  <div class="cars-grid">
+    @for (car of cars(); track car.id) {
+      <div class="car-card" [ngClass]="'car-' + car.escuderia.replace('_', '-')">
+        <div class="car-image">
+            <img [src]="car.urlImagen"
+                 [alt]="car.nombre"
+                 [title]="car.nombre"
+                 (error)="onImageError($event)" />
+        </div>
+        <div class="car-content">
+          <h3>{{ car.nombre }}</h3>
+          <div class="car-team">Escudería {{ car.escuderia | titlecase }}</div>
+          <div class="car-details">
+            <div class="car-spec">⚙️ Motor: {{ car.motor }}</div>
+            <div class="car-spec">🏁 Piloto: {{ car.piloto }}</div>
+            <div class="car-spec">📅 Año: {{ car.anioFabricacion }}</div>
+            <div class="car-spec">⚖️ Peso: {{ car.peso }}kg</div>
+            <div class="car-spec">⚡ Potencia: {{ car.potencia }}hp</div>
+            <div class="car-spec">🌪️ Aerodinámica: {{ car.aerodinamica }}</div>
+          </div>
+          <p class="car-description">{{ car.descripcion }}</p>
+        </div>
+      </div>
+    } @empty {
+      <div class="no-results">
+        <p>No se encontraron autos de F1</p>
+      </div>
+    }
+  </div>
+</div>

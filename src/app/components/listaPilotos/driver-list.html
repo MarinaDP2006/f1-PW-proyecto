@@ -1,0 +1,50 @@
+<div class="driver-list-container">
+  <header class="page-header">
+    <p>Descubre los mejores pilotos del circuito mundial</p>
+  </header>
+
+  <!-- Mensaje de carga -->
+  @if (loading()) {
+    <div class="loading-message">
+      <p>🏎️ Cargando pilotos...</p>
+    </div>
+  }
+
+  <!-- Mensaje de error -->
+  @if (error()) {
+    <div class="error-message">
+      <p>❌ {{ error() }}</p>
+    </div>
+  }
+
+  <div class="drivers-grid">
+    @for (driver of filteredDrivers(); track driver.id) {
+      <div class="driver-card" [attr.data-team]="driver.escuderia">
+        <div class="driver-image gif-container">
+          <img [src]="driver.urlImagen"
+               [alt]="driver.nombre"
+               [title]="driver.nombre + ' - ' + driver.escuderia"
+               class="f1-gif driver-gif"
+               loading="lazy"
+               (error)="onImageError($event)" />
+        </div>
+        <div class="driver-info">
+          <h3>{{ driver.nombre }}</h3>
+          <div class="driver-team">{{ driver.escuderia | titlecase }}</div>
+          <div class="driver-nationality">{{ driver.nacionalidad }}</div>
+          <div class="driver-number">Número: {{ driver.numeroCoche }}</div>
+          <div class="driver-stats">
+            <span class="stat">🏆 {{ driver.victorias }} victorias</span>
+            <span class="stat">🥇 {{ driver.podios }} podios</span>
+            <span class="stat">⚡ {{ driver.poles }} poles</span>
+          </div>
+          <p class="driver-description">{{ driver.descripcion }}</p>
+        </div>
+      </div>
+    } @empty {
+      <div class="no-results">
+        <p>No se encontraron pilotos</p>
+      </div>
+    }
+  </div>
+</div>

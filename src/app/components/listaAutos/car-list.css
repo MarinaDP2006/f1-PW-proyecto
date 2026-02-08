@@ -1,0 +1,324 @@
+/* Página de coches con diseño simple y fondo amarillo */
+.car-list-container {
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: white;
+  padding: 2rem;
+}
+
+.page-header p {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.cars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.car-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+.car-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+}
+
+.car-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #f8f9fa;
+}
+
+.car-content {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.car-content h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-align: center;
+}
+
+.car-team {
+  background: linear-gradient(135deg, #64748b, #475569);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.car-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.car-spec {
+  background: rgba(245, 158, 11, 0.1);
+  color: #92400e;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.car-description {
+  color: #4b5563;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0;
+  text-align: center;
+  font-style: italic;
+  margin-top: auto;
+}
+
+/* Mensajes de estado */
+.loading-message, .error-message, .no-results {
+  text-align: center;
+  padding: 3rem;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .car-list-container {
+    padding: 1rem;
+  }
+
+  .cars-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .car-details {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header p {
+    font-size: 1.5rem;
+  }
+}
+  border: 2px solid transparent;
+}
+
+.car-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+/* Estilos específicos por escudería */
+.car-red-bull {
+  border-image: linear-gradient(45deg, #1e3a8a, #64748b) 1;
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.1), rgba(100, 116, 139, 0.1));
+}
+
+.car-red-bull:hover {
+  box-shadow: 0 20px 50px rgba(30, 58, 138, 0.4);
+}
+
+.car-mercedes {
+  border-image: linear-gradient(45deg, #00d2be, #1a1a1a) 1;
+  background: linear-gradient(135deg, rgba(0, 210, 190, 0.1), rgba(26, 26, 26, 0.1));
+}
+
+.car-mercedes:hover {
+  box-shadow: 0 20px 50px rgba(0, 210, 190, 0.4);
+}
+
+.car-ferrari {
+  border-image: linear-gradient(45deg, #dc2626, #fbbf24) 1;
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(251, 191, 36, 0.1));
+}
+
+.car-ferrari:hover {
+  box-shadow: 0 20px 50px rgba(220, 38, 38, 0.4);
+}
+
+.car-mclaren {
+  border-image: linear-gradient(45deg, #ff6700, #ff9500) 1;
+  background: linear-gradient(135deg, rgba(255, 103, 0, 0.1), rgba(255, 149, 0, 0.1));
+}
+
+.car-mclaren:hover {
+  box-shadow: 0 20px 50px rgba(255, 103, 0, 0.4);
+}
+
+.car-image {
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+}
+
+.car-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s ease;
+}
+
+.car-card:hover .car-image img {
+  transform: scale(1.1) rotate(2deg);
+}
+
+.team-logo {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 25px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.car-content {
+  padding: 2rem;
+}
+
+.car-content h3 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #1a202c;
+  margin-bottom: 1rem;
+  text-align: center;
+  position: relative;
+}
+
+.car-content h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff6b35, #f7931e);
+  border-radius: 2px;
+}
+
+.car-team {
+  color: #4a5568;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+  padding: 0 1.5rem 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.car-details {
+  background: rgba(247, 250, 252, 0.8);
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-row .label {
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 0.9rem;
+}
+
+.detail-row .value {
+  color: #1a202c;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.aero-section {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid rgba(226, 232, 240, 0.8);
+}
+
+.aero-title {
+  font-weight: 700;
+  color: #2d3748;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.aero-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.aero-item {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #ff6b35;
+  color: #2d3748;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.no-results {
+  text-align: center;
+  grid-column: 1 / -1;
+  padding: 4rem;
+  color: #b0b3b8;
+}
+
+.no-results p {
+  font-size: 1.4rem;
+  margin: 0;
+  font-weight: 300;
+}

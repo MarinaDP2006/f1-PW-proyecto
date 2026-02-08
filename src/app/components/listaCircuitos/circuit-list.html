@@ -1,0 +1,34 @@
+<div class="circuit-list-container">
+  <header class="page-header">
+    <p>Las pistas más icónicas y desafiantes del mundo</p>
+  </header>
+  <div class="circuits-grid">
+    @for (circuit of circuits(); track circuit.id) {
+      <div class="circuit-card">
+        <div class="circuit-image">
+            <img [src]="circuit.urlImagen"
+                 [alt]="circuit.nombre"
+                 [title]="circuit.nombre"
+                 (error)="onImageError($event)" />
+        </div>
+        <div class="circuit-content">
+          <h3>{{ circuit.nombre }}</h3>
+          <div class="circuit-location">📍 {{ circuit.nacionalidad }}</div>
+          <div class="circuit-details">
+            <div class="circuit-spec">🏁 Longitud: {{ circuit.longitud }}km</div>
+            <div class="circuit-spec">🔄 Curvas: {{ circuit.curvas }}</div>
+            <div class="circuit-spec">🏆 Tipo: {{ circuit.tipoCircuito | titlecase }}</div>
+            <div class="circuit-spec">⏱️ Récord: {{ circuit.record_vuelta }}</div>
+            <div class="circuit-spec">🏁 Superficie: {{ circuit.superficie | titlecase }}</div>
+            <div class="circuit-spec">⚡ Dificultad: {{ circuit.dificultad | titlecase }}</div>
+          </div>
+          <p class="circuit-description">{{ circuit.descripcion }}</p>
+        </div>
+      </div>
+    } @empty {
+      <div class="no-results">
+        <p>No se encontraron circuitos de F1</p>
+      </div>
+    }
+  </div>
+</div>
