@@ -10,8 +10,6 @@ Es una enciclopedia interactiva y gestible sobre la Fórmula 1, donde se puede:
 
 
 ## Rutas Disponibles
-La aplicación está organizada en:
-
 | Ruta | Descripción |
 |------|-------------|
 | `/` o `/inicio` | Página principal con bienvenida y navegación |
@@ -50,14 +48,11 @@ La aplicación está organizada en:
 ## Instrucciones para Ejecutar la Aplicación
 
 ### Prerrequisitos
-Asegúrate de tener instalado:
-- **Node.js** (versión 18 o superior)
-- **npm** (incluido con Node.js)
+- **Node.js** 
+- **npm**
 
 ### Pasos de Instalación
-
 1. **Clonar o descargar** el proyecto en tu computadora
-
 2. **Abrir terminal** y navegar al directorio del proyecto:
    ```bash
    cd proyecto
