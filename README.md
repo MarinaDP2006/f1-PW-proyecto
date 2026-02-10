@@ -1,45 +1,99 @@
-Esta aplicación es una web donde podrás explorar y crear sobre los pilotos, autos y circuitos más icónicos de la Fórmula 1.
+Esta aplicación web permite explorar pilotos, vehiculos y pistas.
 
-## Componentes del Proyecto
-### Pilotos
-Explora la información de los pilotos más destacados de la F1:
-- **Max Verstappen** - El actual campeón mundial de Red Bull Racing
-- **Lewis Hamilton** - La leyenda de Mercedes con 7 campeonatos mundiales
-- **Charles Leclerc** - La estrella emergente de Ferrari
-- **Lando Norris** - El talento británico de McLaren
-- **Fernando Alonso** - El veterano español con experiencia de campeón
+## Temática del Proyecto
+Es una enciclopedia interactiva y gestible sobre la Fórmula 1, donde se puede:
 
-### Autos (Monoplazas)
-Descubre los monoplazas más avanzados de la temporada:
-- **RB20** - El dominante monoplaza de Red Bull Racing
-- **W15** - Las flechas plateadas de Mercedes-AMG F1
-- **SF-24** - El cavallino rampante de Scuderia Ferrari  
-- **MCL38** - El innovador diseño de McLaren
+- **Descubrir**: Explorar información detallada sobre los pilotos más veloces del mundo, desde leyendas como Lewis Hamilton hasta nuevas estrellas como Max Verstappen
+- **Explorar**: Conocer los monoplazas más avanzados tecnológicamente que compiten en la parrilla actual de F1
+- **Recorrer**: Ver virtualmente por los circuitos.
+- **Gestionar**: Crear y editar información sobre los pilotos favoritos con el sistema de gestión integrado
 
-### Circuitos
-Conoce los circuitos más legendarios de la F1:
-- **Mónaco** - El circuito urbano más glamoroso del mundo
-- **Monza** - El templo de la velocidad en Italia
-- **Silverstone** - La cuna de la Fórmula 1 en Reino Unido
-- **Spa-Francorchamps** - El desafío belga con clima impredecible
-- **Marina Bay** - La espectacular carrera nocturna de Singapur
 
-## Sistema de Datos en Memoria
-### F1 Memory Data Service
-El corazón del proyecto es el **F1 Memory Data Service**, un sistema inteligente que:
+## Rutas Disponibles
+La aplicación está organizada en:
 
-- **Almacena toda la información**: Mantiene en memoria todos los datos de pilotos, autos y circuitos de forma organizada y accesible.
+| Ruta | Descripción |
+|------|-------------|
+| `/` o `/inicio` | Página principal con bienvenida y navegación |
+| `/drivers` | Lista completa de pilotos de F1 |
+| `/driver-detail/:id` | Información detallada de un piloto específico |
+| `/driver-form` | Formulario para agregar un nuevo piloto |
+| `/driver-form/:id` | Formulario para editar información de un piloto |
+| `/cars` | Galería de monoplazas y sus especificaciones |
+| `/circuits` | Catálogo de circuitos legendarios de F1 |
 
-- **Simula una base de datos real**: Aunque no usa una base de datos física, funciona como si tuviera una, permitiendo buscar, filtrar y mostrar información de manera eficiente.
+## Funcionalidades Principales
 
-- **Datos actualizados**: Incluye estadísticas reales y actuales de la temporada de Fórmula 1, con información detallada de cada elemento.
+### Gestión de Pilotos
+- **Ver lista completa** de pilotos con información básica
+- **Ver detalles específicos** de cada piloto (estadísticas, logros, carrera)
+- **Agregar nuevos pilotos** con formulario completo
+- **Editar información existente** de cualquier piloto
+- **Navegación fluida** entre diferentes vistas
 
-- **Fácil navegación**: Organiza la información por categorías (pilotos, autos, circuitos) para que puedas encontrar rápidamente lo que buscas.
+### Exploración de Monoplazas
+- **Catálogo visual** de los autos más avanzados de F1
+- **Información técnica** y características de cada monoplaza
+- **Diseño atractivo** inspirado en la estética de la F1
 
-Este sistema hace que la aplicación sea rápida y responsive, mostrando al instante toda la información que necesitas sobre el mundo de la F1.
+### Descubrimiento de Circuitos
+- **Galería de circuitos** más emblemáticos del mundo
+- **Información detallada** sobre cada pista y su historia
+- **Experiencia inmersiva** con datos fascinantes
 
-## Características Principales
-- **Interfaz intuitiva**: Navegación simple y clara entre las diferentes secciones
-- **Información completa**: Datos detallados y actualizados de la Fórmula 1
-- **Diseño responsive**: Funciona perfectamente en computadoras, tablets y móviles
-- **Experiencia interactiva**: Explora y descubre información de manera dinámica
+### Experiencia de Usuario
+- **Diseño responsive** que se adapta a cualquier dispositivo
+- **Interfaz intuitiva** con navegación clara y accesible
+- **Carga rápida** con gestión eficiente de datos
+- **Tema visual** inspirado en la velocidad y adrenalina de la F1
+
+## Instrucciones para Ejecutar la Aplicación
+
+### Prerrequisitos
+Asegúrate de tener instalado:
+- **Node.js** (versión 18 o superior)
+- **npm** (incluido con Node.js)
+
+### Pasos de Instalación
+
+1. **Clonar o descargar** el proyecto en tu computadora
+
+2. **Abrir terminal** y navegar al directorio del proyecto:
+   ```bash
+   cd proyecto
+   ```
+
+3. **Instalar dependencias**:
+   ```bash
+   npm install
+   ```
+
+4. **Ejecutar la aplicación**:
+   ```bash
+   npm start
+   ```
+   o alternativamente:
+   ```bash
+   ng serve
+   ```
+
+5. **Abrir navegador** y visitar:
+   ```
+   http://localhost:4200
+   ```
+
+### Comandos Adicionales
+- **Construir para producción**:
+  ```bash
+  npm run build
+  ```
+
+- **Ejecutar en modo de desarrollo con recarga automática**:
+  ```bash
+  npm run watch
+  ```
+
+- **Ejecutar pruebas**:
+  ```bash
+  npm test
+  ```
