@@ -49,10 +49,10 @@ export const routes: Routes = [
     component: CircuitList,
     title: 'Circuitos - F1 Universe'
   },
-  // Ruta wildcard: captura cualquier ruta no definida arriba. Redirige a la lista de personajes como página por defecto
+  // Ruta wildcard: captura cualquier ruta no definida arriba. Redirige al inicio como página por defecto
   {
     path: '**',
-    redirectTo: '/characters',
+    redirectTo: '',
     pathMatch: 'full'
   }
 ];

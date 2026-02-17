@@ -1,94 +1,66 @@
-Esta aplicación web permite explorar pilotos, vehiculos y pistas.
+Una aplicación web donde puedes explorar el fascinante mundo de la Fórmula 1. Descubre pilotos, autos y circuitos con toda la información que necesitas.
 
-## Temática del Proyecto
-Es una enciclopedia interactiva y gestible sobre la Fórmula 1, donde se puede:
-
-- **Descubrir**: Explorar información detallada sobre los pilotos más veloces del mundo, desde leyendas como Lewis Hamilton hasta nuevas estrellas como Max Verstappen
-- **Explorar**: Conocer los monoplazas más avanzados tecnológicamente que compiten en la parrilla actual de F1
-- **Recorrer**: Ver virtualmente por los circuitos.
-- **Gestionar**: Crear y editar información sobre los pilotos favoritos con el sistema de gestión integrado
-
-
-## Rutas Disponibles
-| Ruta | Descripción |
-|------|-------------|
-| `/` o `/inicio` | Página principal con bienvenida y navegación |
-| `/drivers` | Lista completa de pilotos de F1 |
-| `/driver-detail/:id` | Información detallada de un piloto específico |
-| `/driver-form` | Formulario para agregar un nuevo piloto |
-| `/driver-form/:id` | Formulario para editar información de un piloto |
-| `/cars` | Galería de monoplazas y sus especificaciones |
-| `/circuits` | Catálogo de circuitos legendarios de F1 |
-
-## Funcionalidades Principales
-
+## ¿Qué puedes hacer en esta aplicación?
 ### Gestión de Pilotos
-- **Ver lista completa** de pilotos con información básica
-- **Ver detalles específicos** de cada piloto (estadísticas, logros, carrera)
-- **Agregar nuevos pilotos** con formulario completo
-- **Editar información existente** de cualquier piloto
-- **Navegación fluida** entre diferentes vistas
+- **Ver todos los pilotos**: Lista completa con fotos y datos básicos
+- **Crear nuevo piloto**: Agrega pilotos personalizados con toda su información
+- **Ver detalles**: Información completa de cada piloto (estadísticas, logros, equipo)
+- **Editar piloto**: Modifica la información de cualquier piloto
+- **Eliminar piloto**: Borra pilotos de la base de datos
 
-### Exploración de Monoplazas
-- **Catálogo visual** de los autos más avanzados de F1
-- **Información técnica** y características de cada monoplaza
-- **Diseño atractivo** inspirado en la estética de la F1
+### Ver Circuitos y Pistas
+- **Explorar circuitos**: Lista de todas las pistas de Fórmula 1
+- **Información técnica**: Longitud, número de curvas, récord de vuelta
+- **Detalles especiales**: Capacidad de espectadores, tipo de superficie
+- **Características**: Nivel de dificultad y particularidades de cada pista
 
-### Descubrimiento de Circuitos
-- **Galería de circuitos** más emblemáticos del mundo
-- **Información detallada** sobre cada pista y su historia
-- **Experiencia inmersiva** con datos fascinantes
+### Catálogo de Coches
+- **Ver todos los monoplazas**: Lista completa de autos de F1
+- **Datos técnicos**: Motor, potencia, peso, chasis
+- **Especificaciones**: Aerodinámica y características técnicas
+- **Información del equipo**: Escudería y año de fabricación
 
-### Experiencia de Usuario
-- **Diseño responsive** que se adapta a cualquier dispositivo
-- **Interfaz intuitiva** con navegación clara y accesible
-- **Carga rápida** con gestión eficiente de datos
-- **Tema visual** inspirado en la velocidad y adrenalina de la F1
+### Pasos para ejecutar
+1. **Descargar el proyecto**
+   ```
+   git clone https://github.com/MarinaDP2006/FINAL-PWANGULAR-Marina.git
+   cd FINAL-PWANGULAR-Marina
+   ```
 
-## Instrucciones para Ejecutar la Aplicación
-
-### Prerrequisitos
-- **Node.js** 
-- **npm**
-
-### Pasos de Instalación
-1. **Clonar o descargar** el proyecto en tu computadora
-2. **Abrir terminal** y navegar al directorio del proyecto:
-   ```bash
+2. **Ir a la carpeta del proyecto**
+   ```
    cd proyecto
    ```
 
-3. **Instalar dependencias**:
-   ```bash
+3. **Instalar dependencias**
+   ```
    npm install
    ```
 
-4. **Ejecutar la aplicación**:
-   ```bash
+4. **Ejecutar la aplicación**
+   ```
    npm start
    ```
-   o alternativamente:
-   ```bash
-   ng serve
-   ```
 
-5. **Abrir navegador** y visitar:
-   ```
-   http://localhost:4200
-   ```
+5. **Abrir en el navegador**
+   - Abre tu navegador favorito
+   - Ve a: http://localhost:4200
 
-### Comandos Adicionales
-- **Construir para producción**:
-  ```bash
-  npm run build
-  ```
+## Navegación - Rutas disponibles
 
-- **Ejecutar en modo de desarrollo con recarga automática**:
-  ```bash
-  npm run watch
-  ```
+| Página | Dirección | Descripción |
+|--------|-----------|-------------|
+| Inicio | `/` o `/inicio` | Página principal |
+| Lista de Pilotos | `/drivers` | Ver todos los pilotos |
+| Detalles de Piloto | `/driver-detail/:id` | Información completa de un piloto |
+| Crear Piloto | `/driver-form` | Formulario para nuevo piloto |
+| Editar Piloto | `/driver-form/:id` | Modificar información de piloto |
+| Lista de Autos | `/cars` | Ver todos los monoplazas |
+| Lista de Circuitos | `/circuits` | Ver todas las pistas |
 
-- **Ejecutar pruebas**:
-  ```bash
-  npm test
-  ```
+## Características técnicas
+- Aplicación moderna construida con Angular 21
+- Interfaz responsive (se adapta a móviles y tablets)
+- Bootstrap para estilos elegantes
+- Datos almacenados localmente (simula base de datos)
+- Navegación fluida entre páginas
