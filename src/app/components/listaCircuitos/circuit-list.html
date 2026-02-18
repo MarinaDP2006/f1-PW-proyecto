@@ -5,12 +5,6 @@
   <div class="circuits-grid">
     @for (circuit of circuits(); track circuit.id) {
       <div class="circuit-card">
-        <div class="circuit-image">
-            <img [src]="circuit.urlImagen"
-                 [alt]="circuit.nombre"
-                 [title]="circuit.nombre"
-                 (error)="onImageError($event)" />
-        </div>
         <div class="circuit-content">
           <h3>{{ circuit.nombre }}</h3>
           <div class="circuit-location">📍 {{ circuit.nacionalidad }}</div>

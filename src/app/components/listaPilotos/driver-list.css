@@ -1,139 +1,111 @@
 /* Página de pilotos con diseño simple y claro */
-.driver-list-container {
-  background: linear-gradient(135deg, #dc2626, #ea580c);
-  min-height: 100vh;
-  padding: 2rem;
-}
 
+.driver-list-container {
+  background: #fafafa;
+  min-height: 100vh;
+  padding: 1rem;
+}
 .page-header {
   text-align: center;
-  margin-bottom: 3rem;
-  color: white;
-  padding: 2rem;
+  margin-bottom: 1.5rem;
+  color: #222;
+  padding: 1rem;
 }
-
 .page-header p {
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: bold;
   margin: 0;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
-
 .drivers-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 2rem;
-  max-width: 1400px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  max-width: 900px;
   margin: 0 auto;
 }
-
 .driver-card {
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 4px #0001;
   display: flex;
   flex-direction: column;
-  height: auto;
+  align-items: center;
 }
-
-.driver-image {
-  width: 100%;
-  height: 160px;
-  margin-bottom: 1rem;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.driver-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.driver-info h3 {
-  margin: 0 0 1rem 0;
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #1a1a1a;
-  text-align: center;
-}
-
-.driver-team {
-  background: linear-gradient(135deg, #dc2626, #ea580c);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 0.8rem;
-}
-
-.driver-nationality {
-  color: #374151;
-  font-size: 0.9rem;
-  text-align: center;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
-
-.driver-number {
-  color: #6b7280;
-  font-size: 0.85rem;
-  text-align: center;
-  margin-bottom: 1rem;
-  font-weight: 500;
-}
-
-.driver-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.stat {
-  background: rgba(220, 38, 38, 0.1);
-  color: #dc2626;
-  padding: 0.4rem 0.6rem;
-  border-radius: 8px;
-  font-size: 0.8rem;
-  font-weight: 500;
-  text-align: center;
-}
-
-.driver-description {
-  color: #4b5563;
-  font-size: 0.9rem;
-  line-height: 1.4;
-  margin: 0;
-  text-align: center;
-  font-style: italic;
-}
-
-/* Mensajes de estado */
-.loading-message, .error-message, .no-results {
-  text-align: center;
-  padding: 3rem;
-  color: white;
-  font-size: 1.2rem;
-  font-weight: 500;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .driver-list-container {
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .drivers-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .driver-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 0.5rem;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+  .driver-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
-  .page-header p {
+  .driver-info {
+    text-align: center;
+  }
+  .driver-info h3 {
+    margin: 0.5rem 0 0.2rem 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  .driver-team {
+    font-weight: bold;
+    color: #333;
+    background: #f5f5f5;
+    border-radius: 0.5rem;
+    padding: 0.2rem 0.7rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+  }
+  .driver-nationality {
+    font-size: 0.95rem;
+    color: #333;
+    margin-bottom: 0.2rem;
+  }
+  .driver-number {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+  .driver-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 0.7rem;
+  }
+  .stat {
+    background: #f0f0f0;
+    color: #333;
+    border-radius: 0.3rem;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  .driver-card p {
+    font-size: 0.9rem;
+    color: #444;
+    margin: 0.5rem 0 0 0;
+  }
+  .loading-message, .error-message {
+    text-align: center;
+    margin: 1.5rem 0;
+    font-size: 1rem;
+    color: #888;
+  }
     font-size: 1.5rem;
-  }
-}

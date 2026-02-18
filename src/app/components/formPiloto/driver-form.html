@@ -118,23 +118,6 @@
             }
           </div>
 
-          <div class="form-group">
-            <label class="form-label" for="urlImagen">URL de la Imagen</label>
-            <input
-              id="urlImagen"
-              type="text"
-              formControlName="urlImagen"
-              class="form-control"
-              [class.is-invalid]="driverForm.get('urlImagen')?.invalid && driverForm.get('urlImagen')?.touched"/>
-            @if (driverForm.get('urlImagen')?.invalid && driverForm.get('urlImagen')?.touched) {
-              <div class="invalid-feedback">
-                La URL de la imagen es obligatoria
-              </div>
-            }
-            <div class="form-text">
-              Introduce la URL de la imagen:
-            </div>
-          </div>
 
           <div class="form-actions">
             <button type="submit" class="btn btn-primary" [disabled]="driverForm.invalid">

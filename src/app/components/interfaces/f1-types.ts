@@ -9,7 +9,7 @@ export interface EntidadF1 {
   id: string;
   nombre: string;
   descripcion: string;
-  urlImagen: string;
+  urlImagen?: string;
   tipo: TipoEntidad;
   escuderia: TipoEscuderia;
   motor: TipoMotor;
@@ -33,6 +33,7 @@ export interface EntidadF1 {
 // Interfaz para pilotos de Fórmula 1
 export interface Piloto extends EntidadF1 {
   tipo: 'piloto';
+  urlImagen: string;
   categoria: TipoCategoria;
   numeroCoche?: number;
   fechaNacimiento?: string;
@@ -58,6 +59,7 @@ export interface Piloto extends EntidadF1 {
 // Interfaz para autos de Fórmula 1
 export interface Auto extends EntidadF1 {
   tipo: 'auto';
+  urlImagen: string;
   tipoAuto: 'monoplaza' | 'coche_seguridad' | 'coche_medico' | 'coche_virtual';
   piloto?: string;
   anioFabricacion?: number;
@@ -81,6 +83,7 @@ export interface Auto extends EntidadF1 {
 // Interfaz para circuitos de Fórmula 1
 export interface Circuito extends EntidadF1 {
   tipo: 'circuito';
+  // urlImagen no obligatorio en Circuito
   tipoCircuito: 'urbano' | 'permanente' | 'mixto' | 'oval' | 'carretera';
   longitud?: string;
   curvas?: number;

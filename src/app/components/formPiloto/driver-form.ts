@@ -36,8 +36,7 @@ export class DriverForm implements OnInit {
       categoria: ['', Validators.required],
       escuderia: ['', Validators.required],
       motor: ['', Validators.required],
-      descripcion: ['', Validators.required],
-      urlImagen: ['']
+      descripcion: ['', Validators.required]
     });
 
     const id = this.route.snapshot.paramMap.get('id');
@@ -56,8 +55,7 @@ export class DriverForm implements OnInit {
           categoria: piloto.categoria,
           escuderia: piloto.escuderia,
           motor: piloto.motor,
-          descripcion: piloto.descripcion,
-          urlImagen: piloto.urlImagen
+          descripcion: piloto.descripcion
         });
       }
     });
@@ -74,7 +72,7 @@ export class DriverForm implements OnInit {
         escuderia: formData.escuderia,
         motor: formData.motor,
         descripcion: formData.descripcion,
-        urlImagen: formData.urlImagen,
+        urlImagen: '',
         tipo: 'piloto' as const,
         nacionalidad: 'Internacional',
         numeroCoche: Math.floor(Math.random() * 99) + 1,
