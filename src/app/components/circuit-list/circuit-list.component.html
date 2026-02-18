@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>Circuitos F1 2025-2026</h1>
+  <p class="subtitle">Todos los circuitos del calendario oficial de la Fórmula 1</p>
+
+  <div class="table-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Circuito</th>
+          <th>País</th>
+          <th>Tipo</th>
+          <th>Longitud</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let circuito of circuitos" class="table-row">
+          <td class="circuit-name">{{ circuito.nombre }}</td>
+          <td class="country">{{ circuito.pais }}</td>
+          <td class="circuit-type">{{ circuito.tipo }}</td>
+          <td class="length">{{ circuito.longitud }}</td>
+          <td class="description">{{ circuito.descripcion }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="actions">
+    <button class="btn" routerLink="/inicio">
+      Volver al Inicio
+    </button>
+  </div>
+</div>

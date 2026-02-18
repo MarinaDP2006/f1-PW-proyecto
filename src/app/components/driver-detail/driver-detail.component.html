@@ -1,0 +1,24 @@
+<div *ngIf="piloto" class="driver-detail-container">
+  <img [src]="piloto.imagenUrl" alt="{{ piloto.nombre }}" />
+  <h2>{{ piloto.nombre }}</h2>
+  <p><strong>Equipo:</strong> {{ piloto.equipo }}</p>
+  <p><strong>Número:</strong> {{ piloto.numero }}</p>
+  <p><strong>Nacionalidad:</strong> {{ piloto.nacionalidad }}</p>
+  <div class="estadisticas">
+    <h3>Estadísticas</h3>
+    <ul>
+      <li>Carreras: {{ piloto.estadisticas.carreras }}</li>
+      <li>Victorias: {{ piloto.estadisticas.victorias }}</li>
+      <li>Podios: {{ piloto.estadisticas.podios }}</li>
+      <li>Poles: {{ piloto.estadisticas.poles }}</li>
+      <li>Puntos: {{ piloto.estadisticas.puntos }}</li>
+    </ul>
+  </div>
+  <button (click)="volver()">Volver</button>
+  <button (click)="editarPiloto()">Editar</button>
+  <button (click)="eliminarPiloto()">Eliminar</button>
+</div>
+<div *ngIf="!piloto">
+  <p>Piloto no encontrado.</p>
+  <button (click)="volver()">Volver</button>
+</div>

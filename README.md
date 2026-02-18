@@ -1,59 +1,97 @@
-# F1ProyectoAngular
+# F1 Universe - Aplicación Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+## Descripción
+Es una aplicación Angular completa que permite explorar, gestionar y descubrir el universo de la Fórmula 1. Los usuarios pueden navegar por un catálogo interactivo de pilotos, monoplazas y circuitos con funcionalidades CRUD completas para pilotos.
 
-## Development server
+## Temática
+La aplicación está dedicada al mundo de la **Fórmula 1**, el deporte del automovilismo más prestigioso del mundo. Permite a los fans y usuarios gestionar información detallada sobre:
 
-To start a local development server, run:
+- **Pilotos**: Información completa de los drivers actuales y históricos
+- **Monoplazas**: Especificaciones técnicas de los autos F1
+- **Circuitos**: Detalles de los trazados más emblemáticos
 
+## Qué hace la aplicación
+1. **Gestión completa de Pilotos** (CRUD): Los usuarios pueden crear, leer, actualizar y eliminar información de pilotos
+2. **Catálogo de Monoplazas**: Visualización de especificaciones técnicas y características de los autos F1
+3. **Exploración de Circuitos**: Información detallada de los trazados más importantes del campeonato
+4. **Navegación intuitiva**: Sistema de navegación fluido entre todas las secciones
+5. **Interfaz moderna**: Diseño responsive inspirado en la estética F1
+
+## Funcionalidades Principales
+
+### Gestión de Pilotos (CRUD Completo)
+- **Crear**: Agregar nuevos pilotos con formularios reactivos y validaciones
+- **Leer**: Visualizar lista completa de pilotos con filtros por nombre/equipo
+- **Actualizar**: Editar información de pilotos existentes
+- **Eliminar**: Remover pilotos con confirmaciones de seguridad
+- **Estadísticas**: Carreras, victorias, podios, poles y puntos
+
+### Catálogo de Monoplazas
+- Visualización de todos los monoplazas por equipo
+- Especificaciones técnicas: motor, potencia, año
+- Imágenes de los vehículos
+- Solo lectura (edición desde VSCode)
+
+### Directorio de Circuitos
+- Circuitos más importantes del calendario F1
+- Características: longitud, tipo, país
+- Descripciones detalladas de cada trazado
+- Solo lectura (edición desde VSCode)
+
+### Sistema de Navegación
+- **Página de Inicio**: Presentación del proyecto F1 Universe
+- **Menú Principal**: Acceso rápido a todas las secciones
+- **Rutas Dinámicas**: Navegación con parámetros para detalles y edición
+- **Flujo Intuitivo**: Transiciones suaves entre vistas
+
+### Características Técnicas
+- **Responsive Design**: Adaptable a cualquier dispositivo
+- **Angular Signals**: Estado reactivo con `signal<boolean>`
+- **Dependency Injection**: Uso de `inject()` moderno
+- **Formularios Reactivos**: Validaciones integradas y personalizadas
+- **HttpClient**: Comunicación con backend simulado
+- **BehaviorSubjects**: Estado global reactivo
+- **TypeScript**: Tipado estricto con interfaces definidas
+
+## Instalación y Ejecución
+1. **Clonar el repositorio**
 ```bash
-ng serve
+git clone [url-del-repositorio]
+cd f1-proyectoAngular
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+2. **Ir a la carpeta del proyecto**
+   ```
+   cd proyecto
+   ```
 
-## Code scaffolding
+3. **Instalar dependencias**
+   ```
+   npm install
+   ```
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+4. **Ejecutar la aplicación**
+   ```
+   npm start
+   ```
 
-```bash
-ng generate component component-name
-```
+5. **Abrir en el navegador**
+- http://localhost:4200
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Navegación - Rutas disponibles
+| Página | Dirección | Descripción |
+|--------|-----------|-------------|
+| Inicio | `/` o `/inicio` | Página principal |
+| Lista de Pilotos | `/drivers` | Ver todos los pilotos |
+| Detalles de Piloto | `/driver-detail/:id` | Información completa de un piloto |
+| Crear Piloto | `/driver-form` | Formulario para nuevo piloto |
+| Editar Piloto | `/driver-form/:id` | Modificar información de piloto |
+| Lista de Autos | `/cars` | Ver todos los monoplazas |
+| Lista de Circuitos | `/circuits` | Ver todas las pistas |
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Características técnicas
+- Aplicación moderna construida con Angular 21
+- Interfaz responsive (se adapta a móviles y tablets)
+- Bootstrap para estilos elegantes
+- Datos almacenados localmente (simula base de datos)
+- Navegación fluida entre páginas

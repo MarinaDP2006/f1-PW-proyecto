@@ -1,0 +1,276 @@
+/* Page Layout */
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--gray-300);
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--dark-color);
+  margin-bottom: 0.5rem;
+}
+
+.page-description {
+  font-size: 1.1rem;
+  color: var(--gray-600);
+  margin-bottom: 0;
+}
+
+/* Garage Layout */
+.garage-layout {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.garage-floor {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  position: relative;
+}
+
+.garage-floor::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 48px,
+      rgba(0, 0, 0, 0.05) 48px,
+      rgba(0, 0, 0, 0.05) 50px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 48px,
+      rgba(0, 0, 0, 0.05) 48px,
+      rgba(0, 0, 0, 0.05) 50px
+    );
+  pointer-events: none;
+  border-radius: 1rem;
+}
+
+/* Pit Box Styling */
+.pit-box {
+  background-color: var(--white);
+  border: 2px solid var(--gray-300);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.pit-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15);
+  border-color: var(--primary-color);
+}
+
+.pit-number {
+  position: absolute;
+  top: -15px;
+  right: 1rem;
+  background-color: var(--primary-color);
+  color: var(--white);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border: 2px solid var(--white);
+}
+
+/* Car Showcase */
+.car-showcase {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.car-image-container {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.car-image {
+  width: 150px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.pit-box:hover .car-image {
+  transform: scale(1.05);
+}
+
+.car-reflection {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), transparent);
+  border-radius: 0 0 0.5rem 0.5rem;
+  transform: scaleY(-1);
+}
+
+/* Car Details */
+.car-details {
+  flex: 1;
+}
+
+.team-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.car-model {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 1rem;
+}
+
+.car-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.spec-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.spec-item:last-child {
+  border-bottom: none;
+}
+
+.spec-label {
+  font-weight: 500;
+  color: var(--gray-600);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.spec-value {
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+/* Pit Lane */
+.pit-lane {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg,
+    var(--primary-color) 0%,
+    var(--secondary-color) 50%,
+    var(--primary-color) 100%);
+  border-radius: 0 0 0.75rem 0.75rem;
+}
+
+/* Garage Info */
+.garage-info {
+  margin-top: 2rem;
+}
+
+.info-panel {
+  background-color: var(--light-color);
+  border: 1px solid var(--gray-300);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.info-panel h3 {
+  color: var(--dark-color);
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.info-panel .icon {
+  margin-right: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .garage-layout {
+    padding: 1rem;
+  }
+
+  .garage-floor {
+    grid-template-columns: 1fr;
+  }
+
+  .car-showcase {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .car-image {
+    width: 120px;
+    height: 72px;
+  }
+
+  .team-name {
+    font-size: 1.25rem;
+  }
+
+  .spec-item {
+    padding: 0.375rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .pit-box {
+    padding: 1rem;
+  }
+
+  .car-image {
+    width: 100px;
+    height: 60px;
+  }
+
+  .team-name {
+    font-size: 1.125rem;
+  }
+
+  .spec-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.25rem;
+  }
+}

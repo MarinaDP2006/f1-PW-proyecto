@@ -1,0 +1,22 @@
+.driver-detail-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 2rem;
+  text-align: center;
+}
+.driver-detail-container img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+.estadisticas {
+  margin: 1rem 0;
+}
+button {
+  margin: 0.5rem;
+}
