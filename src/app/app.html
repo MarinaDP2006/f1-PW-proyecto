@@ -1,4 +1,12 @@
-<app-navbar></app-navbar>
-<main>
-  <router-outlet></router-outlet>
-</main>
+<!-- Clase app-shell: contenedor principal de toda la aplicación -->
+<div class="app-shell">
+  <app-navbar></app-navbar>
+
+  <!-- Clase app-main: área principal donde se renderiza el contenido de rutas -->
+  <main class="app-main" role="main">
+    <!-- Clase app-content: contenedor centrado con ancho máximo para el contenido -->
+    <div class="app-content">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>

@@ -1,6 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Observable, catchError, of, tap } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, map, of, tap } from 'rxjs';
 import { Piloto } from '../interfaces/piloto.interface';
 import { Auto } from '../interfaces/auto.interface';
 import { Circuito } from '../interfaces/circuito.interface';
@@ -16,16 +16,20 @@ export class F1Data {
   private pilotosSubject = new BehaviorSubject<Piloto[]>([]);
   public readonly pilotos$ = this.pilotosSubject.asObservable();
 
+  //
   private autosSubject = new BehaviorSubject<Auto[]>([]);
   public readonly autos$ = this.autosSubject.asObservable();
 
+  //
   private circuitosSubject = new BehaviorSubject<Circuito[]>([]);
   public readonly circuitos$ = this.circuitosSubject.asObservable();
 
+  //
   private readonly pilotosUrl = 'api/pilotos';
   private readonly autosUrl = 'api/autos';
   private readonly circuitosUrl = 'api/circuitos';
 
+  //
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Custom-Header': 'F1Universe' })
   };
@@ -49,6 +53,21 @@ export class F1Data {
       .pipe(
         catchError(this.handleError<Piloto>('getPiloto'))
       );
+  }
+
+  // Método para obtener piloto por ID consultando la colección completa
+  getPilotoDesdeLista(id: number): Observable<Piloto | undefined> {
+    return this.http.get<Piloto[]>(this.pilotosUrl, this.httpOptions)
+      .pipe(
+        tap((pilotos) => this.pilotosSubject.next(pilotos)),
+        map((pilotos) => pilotos.find((piloto) => piloto.id === id)),
+        catchError(this.handleError<Piloto | undefined>('getPilotoDesdeLista', undefined))
+      );
+  }
+
+  // Método para buscar piloto en caché local
+  getPilotoEnCache(id: number): Piloto | undefined {
+    return this.pilotosSubject.value.find((piloto) => piloto.id === id);
   }
 
   // Método para agregar un piloto

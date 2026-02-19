@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { F1Data } from '../servicioDATA/f1-data.service';
 import { Piloto } from '../interfaces/piloto.interface';
+import { catchError, finalize, of, timeout } from 'rxjs';
 
 @Component({
   selector: 'app-driver-detail',
@@ -14,13 +15,42 @@ export class DriverDetailComponent implements OnInit {
   private router = inject(Router);
   private f1Data = inject(F1Data);
   piloto?: Piloto;
+  cargando = true;
+  pilotoNoEncontrado = false;
 
   ngOnInit() {
     // Método para cargar el detalle del piloto según el parámetro de ruta
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.f1Data.getPiloto(+id).subscribe(piloto => this.piloto = piloto);
+    const idParam = this.route.snapshot.paramMap.get('id');
+    const id = Number(idParam);
+
+    if (!idParam || Number.isNaN(id)) {
+      this.cargando = false;
+      this.pilotoNoEncontrado = true;
+      return;
     }
+
+    this.cargando = true;
+    this.pilotoNoEncontrado = false;
+
+    const pilotoEnCache = this.f1Data.getPilotoEnCache(id);
+    if (pilotoEnCache) {
+      this.piloto = pilotoEnCache;
+      this.cargando = false;
+      return;
+    }
+
+    this.f1Data.getPiloto(id)
+      .pipe(
+        timeout(8000),
+        catchError(() => of(undefined)),
+        finalize(() => {
+          this.cargando = false;
+          this.pilotoNoEncontrado = !this.piloto;
+        })
+      )
+      .subscribe((piloto) => {
+        this.piloto = piloto;
+      });
   }
 
   // Método para volver a la lista de pilotos

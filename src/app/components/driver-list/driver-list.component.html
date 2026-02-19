@@ -1,3 +1,4 @@
+<!-- Lista para pilotos -->
 <div class="container">
   <div class="page-header">
     <h1 class="page-title">Pilotos de Fórmula 1</h1>
@@ -14,7 +15,6 @@
       />
     </div>
     <a routerLink="/driver-form" class="btn btn-primary add-btn">
-      <i class="icon">➕</i>
       Agregar Piloto
     </a>
   </div>
@@ -31,7 +31,10 @@
   <div class="drivers-grid" *ngIf="!f1Data.loading() && !f1Data.error()">
     <div class="driver-card" *ngFor="let piloto of pilotosFiltrados">
       <div class="card-image">
-        <img [src]="piloto.imagenUrl" [alt]="piloto.nombre" class="driver-photo" />
+        <img *ngIf="piloto.imagenUrl; else sinImagenTarjeta" [src]="piloto.imagenUrl" [alt]="piloto.nombre" class="driver-photo" />
+        <ng-template #sinImagenTarjeta>
+          <div class="image-placeholder">Sin imagen</div>
+        </ng-template>
       </div>
       <div class="card-content">
         <h3 class="driver-name">{{ piloto.nombre }}</h3>
@@ -42,15 +45,12 @@
       </div>
       <div class="card-actions">
         <button (click)="verDetalle(piloto.id)" class="btn btn-sm btn-primary" title="Ver detalles">
-          <i class="icon">👁️</i>
-          Detalle
+          Detalles
         </button>
         <button (click)="editarPiloto(piloto.id)" class="btn btn-sm btn-secondary" title="Editar piloto">
-          <i class="icon">✏️</i>
           Editar
         </button>
         <button (click)="eliminarPiloto(piloto.id)" class="btn btn-sm btn-danger" title="Eliminar piloto">
-          <i class="icon">🗑️</i>
           Eliminar
         </button>
       </div>
@@ -58,7 +58,6 @@
   </div>
 
   <div *ngIf="pilotosFiltrados.length === 0 && !f1Data.loading() && !f1Data.error()" class="empty-state">
-    <div class="empty-icon">🏁</div>
     <h3>No se encontraron pilotos</h3>
     <p>No hay pilotos que coincidan con tu búsqueda</p>
     <a routerLink="/driver-form" class="btn btn-primary">Agregar el primer piloto</a>

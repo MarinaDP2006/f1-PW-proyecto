@@ -1,4 +1,4 @@
-/* Navbar estilo web normal */
+/* CSS para navbar principal */
 .navbar {
   background-color: var(--white);
   border-bottom: 1px solid var(--gray-300);
@@ -14,11 +14,13 @@
   padding: 0 2rem;
 }
 
+/* CSS para bloque de marca */
 .navbar-brand {
   display: flex;
   align-items: center;
 }
 
+/* CSS para enlace principal */
 .brand-link {
   font-size: 1.5rem;
   font-weight: 700;
@@ -32,6 +34,7 @@
   text-decoration: none;
 }
 
+/* CSS para lista de navegación */
 .navbar-nav {
   display: flex;
   list-style: none;
@@ -41,11 +44,13 @@
   gap: 0.5rem;
 }
 
+/* CSS para item de menú */
 .nav-item {
   display: flex;
   align-items: center;
 }
 
+/* CSS para enlaces del menú */
 .nav-link {
   display: block;
   padding: 0.75rem 1rem;
@@ -63,13 +68,14 @@
   text-decoration: none;
 }
 
+/* CSS para estado activo del enlace */
 .nav-link.active {
   color: var(--primary-color);
   background-color: rgba(13, 110, 253, 0.1);
   font-weight: 600;
 }
 
-/* Responsive navbar */
+/* CSS para navbar responsive */
 @media (max-width: 768px) {
   .navbar {
     padding: 0 1rem;

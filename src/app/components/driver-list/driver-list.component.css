@@ -1,4 +1,4 @@
-/* Page Layout */
+/* CSS para cabecera de lista de pilotos */
 .page-header {
   text-align: center;
   margin-bottom: 2rem;
@@ -6,6 +6,7 @@
   border-bottom: 1px solid var(--gray-300);
 }
 
+/* CSS para título de lista de pilotos */
 .page-title {
   font-size: 2.5rem;
   font-weight: 700;
@@ -13,13 +14,14 @@
   margin-bottom: 0.5rem;
 }
 
+/* CSS para descripción de lista de pilotos */
 .page-description {
   font-size: 1.1rem;
   color: var(--gray-600);
   margin-bottom: 0;
 }
 
-/* Filters Section */
+/* CSS para filtros y acciones de lista */
 .filters-section {
   display: flex;
   justify-content: space-between;
@@ -29,31 +31,36 @@
   flex-wrap: wrap;
 }
 
+/* CSS para contenedor del buscador */
 .search-container {
   flex: 1;
   max-width: 400px;
 }
 
+/* CSS para campo de búsqueda */
 .search-input {
   width: 100%;
   font-size: 1rem;
   padding: 0.75rem 1rem;
 }
 
+/* CSS para botón de agregar piloto */
 .add-btn {
   white-space: nowrap;
 }
 
+/* CSS para ícono del botón agregar */
 .add-btn .icon {
   margin-right: 0.5rem;
 }
 
-/* Loading State */
+/* CSS para estado de carga de lista */
 .loading-container {
   text-align: center;
   padding: 3rem;
 }
 
+/* CSS para spinner de carga */
 .spinner {
   width: 40px;
   height: 40px;
@@ -69,20 +76,21 @@
   100% { transform: rotate(360deg); }
 }
 
-/* Alert Messages */
+/* CSS para mensaje de alerta */
 .alert {
   padding: 1rem;
   border-radius: 0.5rem;
   margin-bottom: 1.5rem;
 }
 
+/* CSS para alerta de error */
 .alert-danger {
   background-color: #f8d7da;
   border: 1px solid #f5c6cb;
   color: #721c24;
 }
 
-/* Drivers Grid */
+/* CSS para rejilla de pilotos */
 .drivers-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -90,6 +98,7 @@
   padding: 1rem 0;
 }
 
+/* CSS para tarjeta de piloto */
 .driver-card {
   background-color: var(--white);
   border: 1px solid var(--gray-300);
@@ -101,18 +110,21 @@
   flex-direction: column;
 }
 
+/* CSS para interacción hover de tarjeta */
 .driver-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   border-color: var(--primary-color);
 }
 
+/* CSS para bloque de imagen de tarjeta */
 .card-image {
   padding: 1.5rem 1.5rem 0.5rem;
   text-align: center;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
+/* CSS para foto de piloto */
 .driver-photo {
   width: 100px;
   height: 100px;
@@ -122,12 +134,28 @@
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
 }
 
+/* CSS para placeholder de imagen */
+.image-placeholder {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 2px dashed var(--gray-400);
+  color: var(--gray-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+/* CSS para contenido de tarjeta */
 .card-content {
   padding: 1rem 1.5rem;
   text-align: center;
   flex: 1;
 }
 
+/* CSS para nombre de piloto */
 .driver-name {
   font-size: 1.25rem;
   font-weight: 600;
@@ -136,6 +164,7 @@
   line-height: 1.2;
 }
 
+/* CSS para datos rápidos del piloto */
 .driver-info {
   display: flex;
   justify-content: center;
@@ -144,6 +173,7 @@
   flex-wrap: wrap;
 }
 
+/* CSS para badge informativo */
 .info-item {
   padding: 0.25rem 0.75rem;
   border-radius: 1rem;
@@ -151,16 +181,19 @@
   font-weight: 500;
 }
 
+/* CSS para badge de equipo */
 .info-item.team {
   background-color: var(--primary-color);
   color: var(--white);
 }
 
+/* CSS para badge de número */
 .info-item.number {
   background-color: var(--gray-200);
   color: var(--gray-700);
 }
 
+/* CSS para acciones de tarjeta */
 .card-actions {
   padding: 1rem 1.5rem 1.5rem;
   display: flex;
@@ -169,6 +202,7 @@
   flex-wrap: wrap;
 }
 
+/* CSS para botón compacto */
 .btn-sm {
   padding: 0.5rem 0.75rem;
   font-size: 0.875rem;
@@ -178,29 +212,33 @@
   gap: 0.25rem;
 }
 
+/* CSS para ícono de botón compacto */
 .btn-sm .icon {
   font-size: 0.75rem;
 }
 
+/* CSS para botón de eliminar */
 .btn-danger {
   background-color: var(--danger-color);
   border-color: var(--danger-color);
   color: var(--white);
 }
 
+/* CSS para hover de botón eliminar */
 .btn-danger:hover {
   background-color: #c82333;
   border-color: #bd2130;
   color: var(--white);
 }
 
-/* Empty State */
+/* CSS para estado vacío de lista */
 .empty-state {
   text-align: center;
   padding: 4rem 2rem;
   color: var(--gray-600);
 }
 
+/* CSS para ícono de estado vacío */
 .empty-icon {
   font-size: 4rem;
   margin-bottom: 1rem;
@@ -217,7 +255,7 @@
   margin-bottom: 2rem;
 }
 
-/* Responsive Design */
+/* CSS para responsive de lista de pilotos */
 @media (max-width: 768px) {
   .page-title {
     font-size: 2rem;

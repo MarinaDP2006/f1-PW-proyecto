@@ -1,9 +1,26 @@
+<!-- Detalles para piloto -->
+<div *ngIf="cargando" class="loading-state">
+  <p>Cargando detalle del piloto...</p>
+</div>
+
 <div *ngIf="piloto" class="driver-detail-container">
-  <img [src]="piloto.imagenUrl" alt="{{ piloto.nombre }}" />
+  <img
+    *ngIf="piloto.imagenUrl && !imagenConError; else sinImagen"
+    [src]="piloto.imagenUrl"
+    alt="{{ piloto.nombre }}"
+    class="driver-photo"
+    (error)="marcarImagenConError()"
+  />
+
+  <ng-template #sinImagen>
+    <div class="image-placeholder">Sin imagen</div>
+  </ng-template>
+
   <h2>{{ piloto.nombre }}</h2>
   <p><strong>Equipo:</strong> {{ piloto.equipo }}</p>
   <p><strong>Número:</strong> {{ piloto.numero }}</p>
   <p><strong>Nacionalidad:</strong> {{ piloto.nacionalidad }}</p>
+
   <div class="estadisticas">
     <h3>Estadísticas</h3>
     <ul>
@@ -14,11 +31,15 @@
       <li>Puntos: {{ piloto.estadisticas.puntos }}</li>
     </ul>
   </div>
-  <button (click)="volver()">Volver</button>
-  <button (click)="editarPiloto()">Editar</button>
-  <button (click)="eliminarPiloto()">Eliminar</button>
+
+  <div class="actions">
+    <button (click)="volver()">Volver</button>
+    <button (click)="editarPiloto()">Editar</button>
+    <button (click)="eliminarPiloto()">Eliminar</button>
+  </div>
 </div>
-<div *ngIf="!piloto">
+
+<div *ngIf="!cargando && pilotoNoEncontrado" class="not-found-state">
   <p>Piloto no encontrado.</p>
   <button (click)="volver()">Volver</button>
 </div>

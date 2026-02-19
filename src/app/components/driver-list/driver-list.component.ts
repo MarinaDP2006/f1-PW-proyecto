@@ -14,6 +14,7 @@ export class DriverListComponent implements OnInit {
   private router = inject(Router);
   pilotos: Piloto[] = [];
   filtro: string = '';
+  private imagenesConError = new Set<number>();
 
   ngOnInit() {
     // Método para cargar la lista de pilotos al iniciar
@@ -44,5 +45,15 @@ export class DriverListComponent implements OnInit {
     if (confirm('¿Seguro que deseas eliminar este piloto?')) {
       this.f1Data.deletePiloto(id).subscribe();
     }
+  }
+
+  // Método para marcar una imagen fallida y mostrar placeholder
+  marcarImagenConError(id: number) {
+    this.imagenesConError.add(id);
+  }
+
+  // Método para validar si la imagen del piloto falló
+  imagenConError(id: number): boolean {
+    return this.imagenesConError.has(id);
   }
 }

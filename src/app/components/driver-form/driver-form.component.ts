@@ -34,7 +34,7 @@ export class DriverFormComponent implements OnInit {
       podios: [0, [Validators.required, Validators.min(0)]],
       poles: [0, [Validators.required, Validators.min(0)]],
       puntos: [0, [Validators.required, Validators.min(0)]],
-      imagenUrl: ['', Validators.required]
+      imagenUrl: ['']
     });
   }
 
@@ -69,6 +69,8 @@ export class DriverFormComponent implements OnInit {
   guardar() {
     if (this.form.invalid) return;
     const datos = this.form.value;
+    const imagenNormalizada = this.normalizarImagenUrl(datos.imagenUrl);
+
     const piloto: Piloto = {
       id: this.pilotoId ?? 0,
       nombre: datos.nombre,
@@ -82,12 +84,15 @@ export class DriverFormComponent implements OnInit {
         poles: datos.poles,
         puntos: datos.puntos
       },
-      imagenUrl: datos.imagenUrl
+      imagenUrl: imagenNormalizada
     };
+
     if (this.isEditMode()) {
-      this.f1Data.updatePiloto(piloto).subscribe(() => this.router.navigate(['/drivers']));
+      this.f1Data.updatePiloto(piloto).subscribe(() => this.router.navigate(['/driver-detail', piloto.id]));
     } else {
-      this.f1Data.addPiloto(piloto).subscribe(() => this.router.navigate(['/drivers']));
+      this.f1Data.addPiloto(piloto).subscribe((nuevoPiloto) => {
+        this.router.navigate(['/driver-detail', nuevoPiloto.id]);
+      });
     }
   }
 
@@ -99,5 +104,28 @@ export class DriverFormComponent implements OnInit {
   // Método para obtener el control del formulario con tipado seguro
   get f() {
     return this.form.controls as { [key: string]: any };
+  }
+
+  // Método para normalizar la URL de imagen (externa o local en /public)
+  private normalizarImagenUrl(url: string | null | undefined): string {
+    const valor = (url ?? '').trim();
+
+    if (!valor) {
+      return '';
+    }
+
+    if (valor.startsWith('/public/')) {
+      return valor.replace('/public/', '/');
+    }
+
+    if (/^https?:\/\//i.test(valor) || valor.startsWith('/')) {
+      return valor;
+    }
+
+    if (valor.startsWith('public/')) {
+      return `/${valor.replace(/^public\//, '')}`;
+    }
+
+    return `/images/pilotos/${valor}`;
   }
 }

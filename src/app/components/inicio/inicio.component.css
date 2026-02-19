@@ -1,4 +1,4 @@
-/* Hero Section */
+/* CSS para sección principal de inicio */
 .hero-section {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   padding: 4rem 0;
@@ -6,12 +6,14 @@
   border-bottom: 1px solid var(--gray-300);
 }
 
+/* CSS para contenido principal de inicio */
 .hero-content {
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
 }
 
+/* CSS para título principal de inicio */
 .hero-title {
   font-size: 3.5rem;
   font-weight: 700;
@@ -20,6 +22,7 @@
   line-height: 1.2;
 }
 
+/* CSS para subtítulo de inicio */
 .hero-subtitle {
   font-size: 1.5rem;
   color: var(--primary-color);
@@ -27,6 +30,7 @@
   font-weight: 600;
 }
 
+/* CSS para descripción de inicio */
 .hero-description {
   font-size: 1.1rem;
   color: var(--gray-700);
@@ -37,6 +41,7 @@
   margin-right: auto;
 }
 
+/* CSS para botones de acceso rápido */
 .hero-buttons {
   display: flex;
   gap: 1rem;
@@ -67,12 +72,13 @@
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
-/* Features Section */
+/* CSS para sección de características */
 .features-section {
   padding: 4rem 0;
   background-color: var(--white);
 }
 
+/* CSS para título de características */
 .section-title {
   text-align: center;
   font-size: 2.5rem;
@@ -81,6 +87,7 @@
   margin-bottom: 3rem;
 }
 
+/* CSS para tarjetas de características */
 .feature-card {
   background-color: var(--white);
   border: 1px solid var(--gray-300);
@@ -98,6 +105,7 @@
   border-color: var(--primary-color);
 }
 
+/* CSS para íconos de características */
 .feature-icon {
   font-size: 3rem;
   margin-bottom: 1rem;
@@ -118,7 +126,7 @@
   margin-bottom: 0;
 }
 
-/* Responsive */
+/* CSS para responsive de inicio */
 @media (max-width: 768px) {
   .hero-section {
     padding: 2rem 0;

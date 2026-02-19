@@ -1,4 +1,4 @@
-/* Circuit List - Estilo web normal */
+/* CSS para lista de circuitos */
 .container {
   padding: 2rem;
   background-color: var(--light-color);
@@ -13,6 +13,7 @@ h1 {
   margin-bottom: 0.5rem;
 }
 
+/* CSS para subtítulo de circuitos */
 .subtitle {
   text-align: center;
   color: var(--gray-600);
@@ -21,6 +22,7 @@ h1 {
   font-weight: 400;
 }
 
+/* CSS para contenedor de tabla */
 .table-container {
   overflow-x: auto;
   background-color: var(--white);
@@ -30,6 +32,7 @@ h1 {
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
 
+/* CSS para tabla de circuitos */
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -56,6 +59,7 @@ h1 {
   vertical-align: top;
 }
 
+/* CSS para filas de circuitos */
 .table-row {
   transition: all 0.3s ease;
 }
@@ -69,17 +73,20 @@ h1 {
   cursor: pointer;
 }
 
+/* CSS para nombre de circuito */
 .circuit-name {
   font-weight: 600;
   color: var(--dark-color);
   font-size: 1.1rem;
 }
 
+/* CSS para país del circuito */
 .country {
   color: var(--gray-700);
   font-weight: 500;
 }
 
+/* CSS para tipo de circuito */
 .circuit-type {
   background-color: var(--primary-color);
   color: var(--white);
@@ -92,12 +99,14 @@ h1 {
   min-width: 100px;
 }
 
+/* CSS para longitud de circuito */
 .length {
   color: var(--primary-color);
   font-weight: 600;
   font-size: 1rem;
 }
 
+/* CSS para descripción de circuito */
 .description {
   color: var(--gray-600);
   font-size: 0.95rem;
@@ -105,12 +114,14 @@ h1 {
   max-width: 300px;
 }
 
+/* CSS para acciones de la lista */
 .actions {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
 }
 
+/* CSS para botón de navegación */
 .btn {
   background-color: var(--primary-color);
   color: var(--white);
@@ -132,7 +143,7 @@ h1 {
   box-shadow: 0 0.25rem 0.75rem rgba(13, 110, 253, 0.25);
 }
 
-/* Responsive */
+/* CSS para responsive de circuitos */
 @media (max-width: 1200px) {
   .table {
     font-size: 0.9rem;

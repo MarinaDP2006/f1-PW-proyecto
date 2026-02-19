@@ -1,4 +1,4 @@
-/* Page Layout */
+/* CSS para cabecera de lista de monoplazas */
 .page-header {
   text-align: center;
   margin-bottom: 2rem;
@@ -6,6 +6,7 @@
   border-bottom: 1px solid var(--gray-300);
 }
 
+/* CSS para título de lista de monoplazas */
 .page-title {
   font-size: 2.5rem;
   font-weight: 700;
@@ -13,13 +14,14 @@
   margin-bottom: 0.5rem;
 }
 
+/* CSS para descripción de lista de monoplazas */
 .page-description {
   font-size: 1.1rem;
   color: var(--gray-600);
   margin-bottom: 0;
 }
 
-/* Garage Layout */
+/* CSS para estructura visual del garaje */
 .garage-layout {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   border-radius: 1rem;
@@ -28,6 +30,7 @@
   box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05);
 }
 
+/* CSS para rejilla del garaje */
 .garage-floor {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -61,7 +64,7 @@
   border-radius: 1rem;
 }
 
-/* Pit Box Styling */
+/* CSS para tarjeta de monoplaza */
 .pit-box {
   background-color: var(--white);
   border: 2px solid var(--gray-300);
@@ -79,6 +82,7 @@
   border-color: var(--primary-color);
 }
 
+/* CSS para número de box */
 .pit-number {
   position: absolute;
   top: -15px;
@@ -96,18 +100,20 @@
   border: 2px solid var(--white);
 }
 
-/* Car Showcase */
+/* CSS para vista de monoplaza y detalles */
 .car-showcase {
   display: flex;
   gap: 1.5rem;
   align-items: center;
 }
 
+/* CSS para contenedor de imagen del monoplaza */
 .car-image-container {
   position: relative;
   flex-shrink: 0;
 }
 
+/* CSS para imagen del monoplaza */
 .car-image {
   width: 150px;
   height: 90px;
@@ -121,6 +127,7 @@
   transform: scale(1.05);
 }
 
+/* CSS para efecto visual de reflejo */
 .car-reflection {
   position: absolute;
   bottom: -2px;
@@ -132,11 +139,12 @@
   transform: scaleY(-1);
 }
 
-/* Car Details */
+/* CSS para bloque de detalles técnicos */
 .car-details {
   flex: 1;
 }
 
+/* CSS para nombre del equipo */
 .team-name {
   font-size: 1.5rem;
   font-weight: 700;
@@ -146,6 +154,7 @@
   letter-spacing: 1px;
 }
 
+/* CSS para nombre del modelo */
 .car-model {
   font-size: 1.125rem;
   font-weight: 600;
@@ -153,12 +162,14 @@
   margin-bottom: 1rem;
 }
 
+/* CSS para lista de especificaciones */
 .car-specs {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
+/* CSS para fila de especificación */
 .spec-item {
   display: flex;
   justify-content: space-between;
@@ -170,6 +181,7 @@
   border-bottom: none;
 }
 
+/* CSS para etiqueta de especificación */
 .spec-label {
   font-weight: 500;
   color: var(--gray-600);
@@ -178,12 +190,13 @@
   letter-spacing: 0.5px;
 }
 
+/* CSS para valor de especificación */
 .spec-value {
   font-weight: 600;
   color: var(--dark-color);
 }
 
-/* Pit Lane */
+/* CSS para franja decorativa del box */
 .pit-lane {
   position: absolute;
   bottom: 0;
@@ -197,11 +210,12 @@
   border-radius: 0 0 0.75rem 0.75rem;
 }
 
-/* Garage Info */
+/* CSS para sección informativa del garaje */
 .garage-info {
   margin-top: 2rem;
 }
 
+/* CSS para panel de resumen */
 .info-panel {
   background-color: var(--light-color);
   border: 1px solid var(--gray-300);
@@ -220,7 +234,7 @@
   margin-right: 0.5rem;
 }
 
-/* Responsive Design */
+/* CSS para responsive de monoplazas */
 @media (max-width: 768px) {
   .page-title {
     font-size: 2rem;

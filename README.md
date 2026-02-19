@@ -18,7 +18,7 @@ La aplicación está dedicada al mundo de la **Fórmula 1**, el deporte del auto
 
 ## Funcionalidades Principales
 ### Gestión de Pilotos (CRUD Completo)
-- **Crear**: Agregar nuevos pilotos con formularios reactivos y validaciones
+- **Crear**: Agregar nuevos pilotos con formularios reactivos y validaciones pero se borra al cerrar el proyecto. 
 - **Leer**: Visualizar lista completa de pilotos con filtros por nombre/equipo
 - **Actualizar**: Editar información de pilotos existentes
 - **Eliminar**: Remover pilotos con confirmaciones de seguridad

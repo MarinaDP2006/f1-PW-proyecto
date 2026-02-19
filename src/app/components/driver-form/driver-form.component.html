@@ -1,3 +1,4 @@
+<!-- Formulario para crear o editar piloto -->
 <div class="driver-form-container">
   <h2>{{ isEditMode() ? 'Editar Piloto' : 'Nuevo Piloto' }}</h2>
   <form [formGroup]="form" (ngSubmit)="guardar()">
@@ -53,10 +54,11 @@
     </div>
     <div>
       <label>Imagen URL:</label>
-      <input formControlName="imagenUrl" />
-      <div *ngIf="f['imagenUrl'].invalid && (f['imagenUrl'].dirty || f['imagenUrl'].touched)" class="error">
-        <span *ngIf="f['imagenUrl'].errors?.['required']">La URL de la imagen es obligatoria.</span>
-      </div>
+      <input formControlName="imagenUrl" placeholder="https://... o /images/pilotos/mi-foto.jpg" />
+      <small class="image-help">
+        Opcional. Si guardas la imagen en <strong>public/images/pilotos</strong>, puedes usar:
+        <strong>/images/pilotos/archivo.jpg</strong> o solo <strong>archivo.jpg</strong>.
+      </small>
     </div>
     <div class="form-actions">
       <button type="submit" [disabled]="form.invalid || loading()">Guardar</button>

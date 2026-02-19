@@ -20,7 +20,7 @@ export class InMemoryDataService implements InMemoryDbService {
           poles: 32,
           puntos: 2797
         },
-        imagenUrl: '/public/pi'
+        imagenUrl: '/images/pilotos/max-verstappen.jpg'
       },
       {
         id: 2,
@@ -35,7 +35,7 @@ export class InMemoryDataService implements InMemoryDbService {
           poles: 3,
           puntos: 1614
         },
-        imagenUrl: 'https://via.placeholder.com/150x150/FF6B35/FFFFFF?text=SP'
+        imagenUrl: '/images/pilotos/sergio-perez-red-bull-racing.jpg'
       },
       {
         id: 3,
@@ -50,7 +50,7 @@ export class InMemoryDataService implements InMemoryDbService {
           poles: 104,
           puntos: 4623
         },
-        imagenUrl: 'https://via.placeholder.com/150x150/00D2BE/FFFFFF?text=LH'
+        imagenUrl: '/images/pilotos/lewis-hamilton.jpeg'
       },
       {
         id: 4,
@@ -65,7 +65,7 @@ export class InMemoryDataService implements InMemoryDbService {
           poles: 3,
           puntos: 461
         },
-        imagenUrl: 'https://via.placeholder.com/150x150/00D2BE/FFFFFF?text=GR'
+        imagenUrl: '/images/pilotos/george-russell-mercedes-amg-f1.jpg'
       },
       {
         id: 5,
@@ -80,7 +80,7 @@ export class InMemoryDataService implements InMemoryDbService {
           poles: 26,
           puntos: 1204
         },
-        imagenUrl: 'https://via.placeholder.com/150x150/DC143C/FFFFFF?text=CL'
+        imagenUrl: '/images/pilotos/charles-leclerc-scuderia-ferra.jpg'
       },
       {
         id: 6,
@@ -95,7 +95,7 @@ export class InMemoryDataService implements InMemoryDbService {
           poles: 6,
           puntos: 1169
         },
-        imagenUrl: 'https://via.placeholder.com/150x150/DC143C/FFFFFF?text=CS'
+        imagenUrl: '/images/pilotos/Carlos-Sainz.jpg'
       },
       {
         id: 7,
@@ -110,7 +110,7 @@ export class InMemoryDataService implements InMemoryDbService {
           poles: 1,
           puntos: 634
         },
-        imagenUrl: 'https://via.placeholder.com/150x150/FF8700/FFFFFF?text=LN'
+        imagenUrl: '/images/pilotos/lando-norris.png'
       },
       {
         id: 8,
@@ -125,7 +125,7 @@ export class InMemoryDataService implements InMemoryDbService {
           poles: 0,
           puntos: 235
         },
-        imagenUrl: 'https://via.placeholder.com/150x150/FF8700/FFFFFF?text=OP'
+        imagenUrl: '/images/pilotos/oscar-piastri-mclaren.jpg'
       },
       {
         id: 9,
@@ -140,7 +140,7 @@ export class InMemoryDataService implements InMemoryDbService {
           poles: 22,
           puntos: 2323
         },
-        imagenUrl: 'https://via.placeholder.com/150x150/229971/FFFFFF?text=FA'
+        imagenUrl: '/images/pilotos/alonso-aston-martin-1.jpg'
       },
       {
         id: 10,
@@ -155,7 +155,7 @@ export class InMemoryDataService implements InMemoryDbService {
           poles: 1,
           puntos: 283
         },
-        imagenUrl: 'https://via.placeholder.com/150x150/229971/FFFFFF?text=LS'
+        imagenUrl: '/images/pilotos/lance-stroll-aston-martin-f1.jpg'
       },
       {
         id: 11,
@@ -170,7 +170,7 @@ export class InMemoryDataService implements InMemoryDbService {
           poles: 0,
           puntos: 394
         },
-        imagenUrl: 'https://via.placeholder.com/150x150/0090FF/FFFFFF?text=PG'
+        imagenUrl: '/images/pilotos/pierre-gasly-alpine.jpg'
       },
       {
         id: 12,
@@ -185,7 +185,7 @@ export class InMemoryDataService implements InMemoryDbService {
           poles: 0,
           puntos: 395
         },
-        imagenUrl: 'https://via.placeholder.com/150x150/0090FF/FFFFFF?text=EO'
+        imagenUrl: '/images/pilotos/esteban-ocon.jpeg'
       },
       {
         id: 13,
@@ -200,7 +200,7 @@ export class InMemoryDataService implements InMemoryDbService {
           poles: 0,
           puntos: 246
         },
-        imagenUrl: 'https://via.placeholder.com/150x150/005AFF/FFFFFF?text=AA'
+        imagenUrl: '/images/pilotos/alex-albon.jpg'
       },
       {
         id: 14,
@@ -215,7 +215,7 @@ export class InMemoryDataService implements InMemoryDbService {
           poles: 0,
           puntos: 5
         },
-        imagenUrl: 'https://via.placeholder.com/150x150/005AFF/FFFFFF?text=FC'
+        imagenUrl: '/images/pilotos/franco-colapinto-williams-raci-2.jpg'
       },
       {
         id: 15,
@@ -230,7 +230,7 @@ export class InMemoryDataService implements InMemoryDbService {
           poles: 0,
           puntos: 64
         },
-        imagenUrl: 'https://via.placeholder.com/150x150/2B4562/FFFFFF?text=YT'
+        imagenUrl: '/images/pilotos/yuki-tsunoda-racing-bulls.jpg'
       },
       {
         id: 16,
@@ -245,7 +245,7 @@ export class InMemoryDataService implements InMemoryDbService {
           poles: 3,
           puntos: 1339
         },
-        imagenUrl: 'https://via.placeholder.com/150x150/2B4562/FFFFFF?text=DR'
+        imagenUrl: '/images/pilotos/daniel-ricciardo-red-bull-racing.jpg'
       },
       {
         id: 17,
@@ -260,7 +260,7 @@ export class InMemoryDataService implements InMemoryDbService {
           poles: 20,
           puntos: 1797
         },
-        imagenUrl: 'https://via.placeholder.com/150x150/900000/FFFFFF?text=VB'
+        imagenUrl: '/images/pilotos/valtteri-bottas.jpg'
       },
       {
         id: 18,
@@ -275,7 +275,7 @@ export class InMemoryDataService implements InMemoryDbService {
           poles: 0,
           puntos: 12
         },
-        imagenUrl: 'https://via.placeholder.com/150x150/900000/FFFFFF?text=GZ'
+        imagenUrl: '/images/pilotos/zhou-guanyu.jpg'
       },
       {
         id: 19,
@@ -290,7 +290,7 @@ export class InMemoryDataService implements InMemoryDbService {
           poles: 1,
           puntos: 185
         },
-        imagenUrl: 'https://via.placeholder.com/150x150/B6BABD/000000?text=KM'
+        imagenUrl: '/images/pilotos/kevin-magnussen.jpg'
       },
       {
         id: 20,
@@ -305,7 +305,7 @@ export class InMemoryDataService implements InMemoryDbService {
           poles: 1,
           puntos: 541
         },
-        imagenUrl: 'https://via.placeholder.com/150x150/B6BABD/000000?text=NH'
+        imagenUrl: '/images/pilotos/nico-hulkenberg.jpg'
       }
     ];
 
@@ -317,7 +317,7 @@ export class InMemoryDataService implements InMemoryDbService {
         motor: 'Honda RBPT H002',
         potencia: '1060+ HP',
         anio: 2025,
-        imagenUrl: 'https://via.placeholder.com/200x120/FF6B35/FFFFFF?text=RB21'
+        imagenUrl: '/public/images/autos/redbull.jpg'
       },
       {
         id: 2,
@@ -326,7 +326,7 @@ export class InMemoryDataService implements InMemoryDbService {
         motor: 'Mercedes-AMG F1 M16 E Performance',
         potencia: '1055+ HP',
         anio: 2025,
-        imagenUrl: 'https://via.placeholder.com/200x120/00D2BE/FFFFFF?text=W16'
+        imagenUrl: '/public/images/autos/mercedes-f1-w16.jpg'
       },
       {
         id: 3,
@@ -335,7 +335,7 @@ export class InMemoryDataService implements InMemoryDbService {
         motor: 'Ferrari 067/1',
         potencia: '1050+ HP',
         anio: 2025,
-        imagenUrl: 'https://via.placeholder.com/200x120/DC143C/FFFFFF?text=SF25'
+        imagenUrl: '/public/images/autos/ferrari.jpg'
       },
       {
         id: 4,
@@ -344,7 +344,7 @@ export class InMemoryDataService implements InMemoryDbService {
         motor: 'Mercedes-AMG F1 M16 E Performance',
         potencia: '1055+ HP',
         anio: 2025,
-        imagenUrl: 'https://via.placeholder.com/200x120/FF8700/FFFFFF?text=MCL39'
+        imagenUrl: '/public/images/autos/mclaren.jpg'
       },
       {
         id: 5,
@@ -353,7 +353,7 @@ export class InMemoryDataService implements InMemoryDbService {
         motor: 'Mercedes-AMG F1 M16 E Performance',
         potencia: '1055+ HP',
         anio: 2025,
-        imagenUrl: 'https://via.placeholder.com/200x120/229971/FFFFFF?text=AMR25'
+        imagenUrl: '/public/images/autos/astonmartin.jpg'
       },
       {
         id: 6,
@@ -362,7 +362,7 @@ export class InMemoryDataService implements InMemoryDbService {
         motor: 'Renault E-TECH RE25',
         potencia: '1040+ HP',
         anio: 2025,
-        imagenUrl: 'https://via.placeholder.com/200x120/0090FF/FFFFFF?text=A525'
+        imagenUrl: '/public/images/autos/alpine.jpg'
       },
       {
         id: 7,
@@ -371,7 +371,7 @@ export class InMemoryDataService implements InMemoryDbService {
         motor: 'Mercedes-AMG F1 M16 E Performance',
         potencia: '1055+ HP',
         anio: 2025,
-        imagenUrl: 'https://via.placeholder.com/200x120/005AFF/FFFFFF?text=FW47'
+        imagenUrl: '/public/images/autos/williamsracing.jpg'
       },
       {
         id: 8,
@@ -380,7 +380,7 @@ export class InMemoryDataService implements InMemoryDbService {
         motor: 'Honda RBPT H002',
         potencia: '1060+ HP',
         anio: 2025,
-        imagenUrl: 'https://via.placeholder.com/200x120/2B4562/FFFFFF?text=VCARB02'
+        imagenUrl: '/public/images/autos/RB.jpg'
       },
       {
         id: 9,
@@ -389,7 +389,7 @@ export class InMemoryDataService implements InMemoryDbService {
         motor: 'Ferrari 067/1',
         potencia: '1050+ HP',
         anio: 2025,
-        imagenUrl: 'https://via.placeholder.com/200x120/900000/FFFFFF?text=C45'
+        imagenUrl: '/public/images/autos/kicksauber.jpg'
       },
       {
         id: 10,
@@ -398,7 +398,7 @@ export class InMemoryDataService implements InMemoryDbService {
         motor: 'Ferrari 067/1',
         potencia: '1050+ HP',
         anio: 2025,
-        imagenUrl: 'https://via.placeholder.com/200x120/B6BABD/000000?text=VF25'
+        imagenUrl: '/public/images/autos/haas.jpg'
       }
     ];
 

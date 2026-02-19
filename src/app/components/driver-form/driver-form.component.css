@@ -1,3 +1,4 @@
+/* CSS para contenedor del formulario de piloto */
 .driver-form-container {
   max-width: 500px;
   margin: 2rem auto;
@@ -6,11 +7,15 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   padding: 2rem;
 }
+
+/* CSS para etiquetas del formulario */
 label {
   display: block;
   margin-bottom: 0.2rem;
   font-weight: 500;
 }
+
+/* CSS para campos del formulario */
 input {
   width: 100%;
   padding: 0.4rem;
@@ -18,16 +23,30 @@ input {
   border-radius: 5px;
   border: 1px solid #ccc;
 }
+
+/* CSS para mensajes de error del formulario */
 .error {
   color: #e10600;
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
 }
+
+/* CSS para ayuda de imagen del formulario */
+.image-help {
+  display: block;
+  margin: 0.15rem 0 0.75rem;
+  color: var(--gray-600);
+  font-size: 0.85rem;
+}
+
+/* CSS para acciones del formulario */
 .form-actions {
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
 }
+
+/* CSS para botón deshabilitado del formulario */
 button[disabled] {
   opacity: 0.6;
 }
