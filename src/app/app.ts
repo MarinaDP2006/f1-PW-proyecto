@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+// Componente raíz de la aplicación. Carga el navbar y el contenido por rutas.
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',

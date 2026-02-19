@@ -4,6 +4,8 @@ import { F1Data } from '../servicioDATA/f1-data.service';
 import { Piloto } from '../interfaces/piloto.interface';
 import { catchError, finalize, of } from 'rxjs';
 
+// Componente de detalle de un piloto.
+// Resuelve el ID desde la ruta, carga datos y controla estados de carga/error.
 @Component({
   selector: 'app-driver-detail',
   templateUrl: './driver-detail.component.html',
@@ -11,11 +13,17 @@ import { catchError, finalize, of } from 'rxjs';
   standalone: false
 })
 export class DriverDetailComponent implements OnInit {
+  // Servicio de rutas activas para leer parámetros (ej. id).
   private route = inject(ActivatedRoute);
+  // Servicio de navegación de Angular.
   private router = inject(Router);
+  // Servicio de datos de la aplicación.
   private f1Data = inject(F1Data);
+  // Piloto actualmente mostrado en la pantalla.
   piloto?: Piloto;
+  // Indicador de carga para renderizar estado de espera.
   cargando = true;
+  // Bandera para estado de recurso inexistente o inválido.
   pilotoNoEncontrado = false;
 
   ngOnInit() {
@@ -28,7 +36,6 @@ export class DriverDetailComponent implements OnInit {
       this.pilotoNoEncontrado = true;
       return;
     }
-
     this.cargando = true;
     this.pilotoNoEncontrado = false;
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+// Componente de barra de navegación superior. Centra los enlaces de acceso a las secciones principales.
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   standalone: false
 })
 export class NavbarComponent {
-  // Navbar component para navegación principal
+  // Componente visual sin lógica adicional por el momento.
 }

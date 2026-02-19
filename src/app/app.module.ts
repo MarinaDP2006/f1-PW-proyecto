@@ -16,7 +16,9 @@ import { CarListComponent } from './components/car-list/car-list.component';
 import { CircuitListComponent } from './components/circuit-list/circuit-list.component';
 import { APP_ROUTES } from './app.routes';
 
+// Módulo raíz de Angular. Se registran componentes, dependencias y configuración de rutas.
 @NgModule({
+  // Componentes de la app disponibles dentro de este módulo.
   declarations: [
     AppComponent,
     InicioComponent,
@@ -27,6 +29,7 @@ import { APP_ROUTES } from './app.routes';
     CarListComponent,
     CircuitListComponent
   ],
+  // Módulos externos necesarios para formularios, HTTP, enrutamiento y mock de API.
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -38,7 +41,9 @@ import { APP_ROUTES } from './app.routes';
       scrollPositionRestoration: 'top'
     })
   ],
+  // Proveedores globales.
   providers: [],
+  // Componente inicial que Angular monta al arrancar.
   bootstrap: [AppComponent]
 })
 export class AppModule {}

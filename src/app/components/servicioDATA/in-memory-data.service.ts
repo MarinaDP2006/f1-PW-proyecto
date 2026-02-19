@@ -3,9 +3,11 @@ import { Piloto } from '../interfaces/piloto.interface';
 import { Auto } from '../interfaces/auto.interface';
 import { Circuito } from '../interfaces/circuito.interface';
 
+// Servicio mock de base de datos en memoria. Simula una API REST local para pilotos, autos y circuitos.
 export class InMemoryDataService implements InMemoryDbService {
   // Método para crear la base de datos en memoria
   createDb() {
+    // Colección principal de pilotos disponible en la API mock.
     const pilotos: Piloto[] = [
       {
         id: 1,
@@ -309,6 +311,7 @@ export class InMemoryDataService implements InMemoryDbService {
       }
     ];
 
+    // Colección de autos de Fórmula 1 usada por la vista de monoplazas.
     const autos: Auto[] = [
       {
         id: 1,
@@ -317,7 +320,7 @@ export class InMemoryDataService implements InMemoryDbService {
         motor: 'Honda RBPT H002',
         potencia: '1060+ HP',
         anio: 2025,
-        imagenUrl: '/public/images/autos/redbull.jpg'
+        imagenUrl: '/images/autos/redbull.jpg'
       },
       {
         id: 2,
@@ -326,7 +329,7 @@ export class InMemoryDataService implements InMemoryDbService {
         motor: 'Mercedes-AMG F1 M16 E Performance',
         potencia: '1055+ HP',
         anio: 2025,
-        imagenUrl: '/public/images/autos/mercedes-f1-w16.jpg'
+        imagenUrl: '/images/autos/mercedes-f1-w16.jpg'
       },
       {
         id: 3,
@@ -335,7 +338,7 @@ export class InMemoryDataService implements InMemoryDbService {
         motor: 'Ferrari 067/1',
         potencia: '1050+ HP',
         anio: 2025,
-        imagenUrl: '/public/images/autos/ferrari.jpg'
+        imagenUrl: '/images/autos/ferrari.jpg'
       },
       {
         id: 4,
@@ -344,7 +347,7 @@ export class InMemoryDataService implements InMemoryDbService {
         motor: 'Mercedes-AMG F1 M16 E Performance',
         potencia: '1055+ HP',
         anio: 2025,
-        imagenUrl: '/public/images/autos/mclaren.jpg'
+        imagenUrl: '/images/autos/mclaren.jpg'
       },
       {
         id: 5,
@@ -353,7 +356,7 @@ export class InMemoryDataService implements InMemoryDbService {
         motor: 'Mercedes-AMG F1 M16 E Performance',
         potencia: '1055+ HP',
         anio: 2025,
-        imagenUrl: '/public/images/autos/astonmartin.jpg'
+        imagenUrl: '/images/autos/astonmartin.jpg'
       },
       {
         id: 6,
@@ -362,7 +365,7 @@ export class InMemoryDataService implements InMemoryDbService {
         motor: 'Renault E-TECH RE25',
         potencia: '1040+ HP',
         anio: 2025,
-        imagenUrl: '/public/images/autos/alpine.jpg'
+        imagenUrl: '/images/autos/alpine.jpg'
       },
       {
         id: 7,
@@ -371,7 +374,7 @@ export class InMemoryDataService implements InMemoryDbService {
         motor: 'Mercedes-AMG F1 M16 E Performance',
         potencia: '1055+ HP',
         anio: 2025,
-        imagenUrl: '/public/images/autos/williamsracing.jpg'
+        imagenUrl: '/images/autos/williamsracing.jpg'
       },
       {
         id: 8,
@@ -380,7 +383,7 @@ export class InMemoryDataService implements InMemoryDbService {
         motor: 'Honda RBPT H002',
         potencia: '1060+ HP',
         anio: 2025,
-        imagenUrl: '/public/images/autos/RB.jpg'
+        imagenUrl: '/images/autos/RB.jpg'
       },
       {
         id: 9,
@@ -389,7 +392,7 @@ export class InMemoryDataService implements InMemoryDbService {
         motor: 'Ferrari 067/1',
         potencia: '1050+ HP',
         anio: 2025,
-        imagenUrl: '/public/images/autos/kicksauber.jpg'
+        imagenUrl: '/images/autos/kicksauber.jpg'
       },
       {
         id: 10,
@@ -398,10 +401,11 @@ export class InMemoryDataService implements InMemoryDbService {
         motor: 'Ferrari 067/1',
         potencia: '1050+ HP',
         anio: 2025,
-        imagenUrl: '/public/images/autos/haas.jpg'
+        imagenUrl: '/images/autos/haas.jpg'
       }
     ];
 
+    // Colección de circuitos disponible para la sección de trazados.
     const circuitos: Circuito[] = [
       {
         id: 1,

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { F1Data } from '../servicioDATA/f1-data.service';
 import { Piloto } from '../interfaces/piloto.interface';
 
+// Componente de formulario para crear y editar pilotos. Usa Reactive Forms y el mismo flujo para alta y actualización.
 @Component({
   selector: 'app-driver-form',
   templateUrl: './driver-form.component.html',
@@ -11,15 +12,24 @@ import { Piloto } from '../interfaces/piloto.interface';
   standalone: false
 })
 export class DriverFormComponent implements OnInit {
+  // Constructor de formularios reactivos.
   private fb = inject(FormBuilder);
+  // Acceso a parámetros de la ruta activa.
   private route = inject(ActivatedRoute);
+  // Navegación programática al guardar/cancelar.
   private router = inject(Router);
+  // Servicio de datos y estado compartido.
   private f1Data = inject(F1Data);
 
+  // Formulario principal con los campos del piloto.
   form: FormGroup;
+  // Señal que indica si el formulario está en modo edición.
   isEditMode = this.f1Data.isEditMode;
+  // Señal de carga para operaciones HTTP.
   loading = this.f1Data.loading;
+  // Señal de error para mostrar feedback al usuario.
   error = this.f1Data.error;
+  // ID del piloto cuando se edita un registro existente.
   pilotoId?: number;
 
   constructor() {

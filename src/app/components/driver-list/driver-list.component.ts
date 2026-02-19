@@ -3,6 +3,7 @@ import { F1Data } from '../servicioDATA/f1-data.service';
 import { Piloto } from '../interfaces/piloto.interface';
 import { Router } from '@angular/router';
 
+// Componente que administra y muestra el listado de pilotos. Incluye búsqueda, navegación a detalle/edición y eliminación.
 @Component({
   selector: 'app-driver-list',
   templateUrl: './driver-list.component.html',
@@ -10,10 +11,15 @@ import { Router } from '@angular/router';
   standalone: false
 })
 export class DriverListComponent implements OnInit {
+  // Servicio principal para consultar y mutar datos de F1.
   public f1Data = inject(F1Data);
+  // Router para navegación programática entre pantallas.
   private router = inject(Router);
+  // Lista completa de pilotos cargada desde el servicio.
   pilotos: Piloto[] = [];
+  // Texto de filtro para buscar por nombre o equipo.
   filtro: string = '';
+  // Registro de IDs con imagen fallida para mostrar placeholder.
   private imagenesConError = new Set<number>();
 
   ngOnInit() {

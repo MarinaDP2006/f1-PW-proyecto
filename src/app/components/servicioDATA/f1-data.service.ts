@@ -5,6 +5,7 @@ import { Piloto } from '../interfaces/piloto.interface';
 import { Auto } from '../interfaces/auto.interface';
 import { Circuito } from '../interfaces/circuito.interface';
 
+// Servicio central de acceso a datos de la aplicación. Gestiona pilotos, autos y circuitos consumiendo la API en memoria.
 @Injectable({ providedIn: 'root' })
 export class F1Data {
   // Señales para el estado reactivo
@@ -16,20 +17,20 @@ export class F1Data {
   private pilotosSubject = new BehaviorSubject<Piloto[]>([]);
   public readonly pilotos$ = this.pilotosSubject.asObservable();
 
-  //
+  // Fuente reactiva para el catálogo de autos.
   private autosSubject = new BehaviorSubject<Auto[]>([]);
   public readonly autos$ = this.autosSubject.asObservable();
 
-  //
+  // Fuente reactiva para el catálogo de circuitos.
   private circuitosSubject = new BehaviorSubject<Circuito[]>([]);
   public readonly circuitos$ = this.circuitosSubject.asObservable();
 
-  //
+  // Endpoints usados por la API mock del proyecto.
   private readonly pilotosUrl = 'api/pilotos';
   private readonly autosUrl = 'api/autos';
   private readonly circuitosUrl = 'api/circuitos';
 
-  //
+  // Opciones HTTP comunes para todas las peticiones.
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Custom-Header': 'F1Universe' })
   };
@@ -38,6 +39,7 @@ export class F1Data {
 
   // Método para obtener todos los pilotos
   getPilotos(): void {
+    // Activa estado de carga y refresca la colección completa.
     this.loading.set(true);
     this.http.get<Piloto[]>(this.pilotosUrl, this.httpOptions)
       .pipe(
@@ -50,6 +52,7 @@ export class F1Data {
 
   // Método para obtener piloto por ID
   getPiloto(id: number): Observable<Piloto | undefined> {
+    // Consulta directa por endpoint individual.
     return this.http.get<Piloto>(`${this.pilotosUrl}/${id}`, this.httpOptions)
       .pipe(
         map((piloto) => this.normalizarPiloto(piloto)),
@@ -59,6 +62,7 @@ export class F1Data {
 
   // Método para obtener piloto por ID consultando la colección completa
   getPilotoDesdeLista(id: number): Observable<Piloto | undefined> {
+    // Estrategia alternativa: descarga lista y filtra localmente.
     return this.http.get<Piloto[]>(this.pilotosUrl, this.httpOptions)
       .pipe(
         map((pilotos) => this.normalizarPilotos(pilotos)),
@@ -70,11 +74,13 @@ export class F1Data {
 
   // Método para buscar piloto en caché local
   getPilotoEnCache(id: number): Piloto | undefined {
+    // Evita una llamada HTTP si ya está cargado en memoria.
     return this.pilotosSubject.value.find((piloto) => piloto.id === id);
   }
 
   // Método para agregar un piloto
   addPiloto(piloto: Piloto): Observable<Piloto> {
+    // Tras crear, recarga el listado para mantener sincronizada la vista.
     return this.http.post<Piloto>(this.pilotosUrl, piloto, this.httpOptions)
       .pipe(
         tap(() => this.getPilotos()),
@@ -84,6 +90,7 @@ export class F1Data {
 
   // Método para actualizar un piloto
   updatePiloto(piloto: Piloto): Observable<any> {
+    // Tras editar, vuelve a solicitar la lista completa.
     return this.http.put(`${this.pilotosUrl}/${piloto.id}`, piloto, this.httpOptions)
       .pipe(
         tap(() => this.getPilotos()),
@@ -93,6 +100,7 @@ export class F1Data {
 
   // Método para eliminar un piloto
   deletePiloto(id: number): Observable<any> {
+    // Tras borrar, refresca el estado global de pilotos.
     return this.http.delete(`${this.pilotosUrl}/${id}`, this.httpOptions)
       .pipe(
         tap(() => this.getPilotos()),
@@ -102,6 +110,7 @@ export class F1Data {
 
   // Método para obtener todos los autos
   getAutos(): void {
+    // Carga simple de autos (sin estado de carga dedicado).
     this.http.get<Auto[]>(this.autosUrl, this.httpOptions)
       .pipe(
         catchError(this.handleError<Auto[]>('getAutos', []))
@@ -111,6 +120,7 @@ export class F1Data {
 
   // Método para obtener todos los circuitos
   getCircuitos(): void {
+    // Carga simple de circuitos (sin estado de carga dedicado).
     this.http.get<Circuito[]>(this.circuitosUrl, this.httpOptions)
       .pipe(
         catchError(this.handleError<Circuito[]>('getCircuitos', []))
@@ -121,6 +131,7 @@ export class F1Data {
   // Método para manejar errores HTTP
   private handleError<T>(operation = 'operación desconocida', result?: T) {
     return (error: any): Observable<T> => {
+      // Traduce códigos HTTP a mensajes legibles para la interfaz.
       let mensaje = '';
       if (error.status === 0) {
         mensaje = 'Sin conexión con el servidor.';
@@ -132,6 +143,7 @@ export class F1Data {
         mensaje = `Error en ${operation}: ${error.message}`;
       }
       this.error.set(mensaje);
+      // Limpia el mensaje tras unos segundos para no dejar estado persistente.
       setTimeout(() => this.error.set(''), 4000);
       this.loading.set(false);
       return of(result as T);
@@ -140,6 +152,7 @@ export class F1Data {
 
   // Método para normalizar rutas de imágenes de pilotos
   private normalizarImagenPiloto(imagenUrl: string): string {
+    // Convierte rutas heredadas con /public a la ruta pública real en Angular.
     const ruta = (imagenUrl ?? '').trim();
 
     if (!ruta || /^https?:\/\//i.test(ruta)) {
