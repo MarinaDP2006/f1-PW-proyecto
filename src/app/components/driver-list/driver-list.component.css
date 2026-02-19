@@ -190,7 +190,7 @@
 /* CSS para badge de número */
 .info-item.number {
   background-color: var(--gray-200);
-  color: var(--gray-700);
+  color: #000000;
 }
 
 /* CSS para acciones de tarjeta */
