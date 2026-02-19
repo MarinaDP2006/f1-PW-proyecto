@@ -1,5 +1,4 @@
 # F1 Universe - Aplicación Angular
-
 ## Descripción
 Es una aplicación Angular completa que permite explorar, gestionar y descubrir el universo de la Fórmula 1. Los usuarios pueden navegar por un catálogo interactivo de pilotos, monoplazas y circuitos con funcionalidades CRUD completas para pilotos.
 
@@ -18,7 +17,6 @@ La aplicación está dedicada al mundo de la **Fórmula 1**, el deporte del auto
 5. **Interfaz moderna**: Diseño responsive inspirado en la estética F1
 
 ## Funcionalidades Principales
-
 ### Gestión de Pilotos (CRUD Completo)
 - **Crear**: Agregar nuevos pilotos con formularios reactivos y validaciones
 - **Leer**: Visualizar lista completa de pilotos con filtros por nombre/equipo
@@ -39,15 +37,14 @@ La aplicación está dedicada al mundo de la **Fórmula 1**, el deporte del auto
 - Solo lectura (edición desde VSCode)
 
 ### Sistema de Navegación
-- **Página de Inicio**: Presentación del proyecto F1 Universe
+- **Página de Inicio**: Presentación del proyecto
 - **Menú Principal**: Acceso rápido a todas las secciones
 - **Rutas Dinámicas**: Navegación con parámetros para detalles y edición
-- **Flujo Intuitivo**: Transiciones suaves entre vistas
 
 ### Características Técnicas
 - **Responsive Design**: Adaptable a cualquier dispositivo
 - **Angular Signals**: Estado reactivo con `signal<boolean>`
-- **Dependency Injection**: Uso de `inject()` moderno
+- **Dependency Injection**: Uso de `inject()`
 - **Formularios Reactivos**: Validaciones integradas y personalizadas
 - **HttpClient**: Comunicación con backend simulado
 - **BehaviorSubjects**: Estado global reactivo
@@ -88,10 +85,3 @@ cd f1-proyectoAngular
 | Editar Piloto | `/driver-form/:id` | Modificar información de piloto |
 | Lista de Autos | `/cars` | Ver todos los monoplazas |
 | Lista de Circuitos | `/circuits` | Ver todas las pistas |
-
-## Características técnicas
-- Aplicación moderna construida con Angular 21
-- Interfaz responsive (se adapta a móviles y tablets)
-- Bootstrap para estilos elegantes
-- Datos almacenados localmente (simula base de datos)
-- Navegación fluida entre páginas
