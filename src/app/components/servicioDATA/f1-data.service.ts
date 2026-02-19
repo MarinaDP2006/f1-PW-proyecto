@@ -50,18 +50,27 @@ export class F1Data {
 
   // Método para obtener piloto por ID
   getPiloto(id: number): Observable<Piloto | undefined> {
+    return this.http.get<Piloto>(`${this.pilotosUrl}/${id}`, this.httpOptions)
+      .pipe(
+        map((piloto) => this.normalizarPiloto(piloto)),
+        catchError(this.handleError<Piloto>('getPiloto'))
+      );
+  }
+
+  // Método para obtener piloto por ID consultando la colección completa
+  getPilotoDesdeLista(id: number): Observable<Piloto | undefined> {
     return this.http.get<Piloto[]>(this.pilotosUrl, this.httpOptions)
       .pipe(
         map((pilotos) => this.normalizarPilotos(pilotos)),
         tap((pilotos) => this.pilotosSubject.next(pilotos)),
         map((pilotos) => pilotos.find((piloto) => piloto.id === id)),
-        catchError(this.handleError<Piloto | undefined>('getPiloto', undefined))
+        catchError(this.handleError<Piloto | undefined>('getPilotoDesdeLista', undefined))
       );
   }
 
   // Método para buscar piloto en caché local
   getPilotoEnCache(id: number): Piloto | undefined {
-    return this.pilotosSubject.value.find((piloto) => piloto.id === Number(id));
+    return this.pilotosSubject.value.find((piloto) => piloto.id === id);
   }
 
   // Método para agregar un piloto
@@ -129,28 +138,26 @@ export class F1Data {
     };
   }
 
-  // Método para normalizar la ruta de imagen de un piloto
+  // Método para normalizar rutas de imágenes de pilotos
   private normalizarImagenPiloto(imagenUrl: string): string {
-    if (!imagenUrl) {
-      return '';
+    const ruta = (imagenUrl ?? '').trim();
+
+    if (!ruta || /^https?:\/\//i.test(ruta)) {
+      return ruta;
     }
 
-    if (/^https?:\/\//i.test(imagenUrl)) {
-      return imagenUrl;
+    if (ruta.startsWith('/public/')) {
+      return ruta.replace('/public/', '/');
     }
 
-    if (imagenUrl.startsWith('/public/')) {
-      return imagenUrl.replace('/public/', '/');
+    if (ruta.startsWith('public/')) {
+      return `/${ruta.replace(/^public\//, '')}`;
     }
 
-    if (imagenUrl.startsWith('public/')) {
-      return `/${imagenUrl.replace(/^public\//, '')}`;
-    }
-
-    return imagenUrl;
+    return ruta;
   }
 
-  // Método para normalizar la entidad piloto
+  // Método para normalizar un piloto
   private normalizarPiloto(piloto: Piloto): Piloto {
     return {
       ...piloto,

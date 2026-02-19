@@ -4,13 +4,7 @@
 </div>
 
 <div *ngIf="piloto" class="driver-detail-container">
-  <img
-    *ngIf="piloto.imagenUrl && !imagenConError; else sinImagen"
-    [src]="piloto.imagenUrl"
-    alt="{{ piloto.nombre }}"
-    class="driver-photo"
-    (error)="marcarImagenConError()"
-  />
+  <img *ngIf="piloto.imagenUrl; else sinImagen" [src]="piloto.imagenUrl" alt="{{ piloto.nombre }}" class="driver-photo" />
 
   <ng-template #sinImagen>
     <div class="image-placeholder">Sin imagen</div>
