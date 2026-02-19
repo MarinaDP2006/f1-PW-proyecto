@@ -31,7 +31,13 @@
   <div class="drivers-grid" *ngIf="!f1Data.loading() && !f1Data.error()">
     <div class="driver-card" *ngFor="let piloto of pilotosFiltrados">
       <div class="card-image">
-        <img *ngIf="piloto.imagenUrl; else sinImagenTarjeta" [src]="piloto.imagenUrl" [alt]="piloto.nombre" class="driver-photo" />
+        <img
+          *ngIf="piloto.imagenUrl && !imagenConError(piloto.id); else sinImagenTarjeta"
+          [src]="piloto.imagenUrl"
+          [alt]="piloto.nombre"
+          class="driver-photo"
+          (error)="marcarImagenConError(piloto.id)"
+        />
         <ng-template #sinImagenTarjeta>
           <div class="image-placeholder">Sin imagen</div>
         </ng-template>

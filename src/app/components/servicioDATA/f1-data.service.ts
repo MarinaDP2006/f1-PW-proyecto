@@ -41,6 +41,7 @@ export class F1Data {
     this.loading.set(true);
     this.http.get<Piloto[]>(this.pilotosUrl, this.httpOptions)
       .pipe(
+        map((pilotos) => this.normalizarPilotos(pilotos)),
         tap(() => this.loading.set(false)),
         catchError(this.handleError<Piloto[]>('getPilotos', []))
       )
@@ -49,25 +50,18 @@ export class F1Data {
 
   // Método para obtener piloto por ID
   getPiloto(id: number): Observable<Piloto | undefined> {
-    return this.http.get<Piloto>(`${this.pilotosUrl}/${id}`, this.httpOptions)
-      .pipe(
-        catchError(this.handleError<Piloto>('getPiloto'))
-      );
-  }
-
-  // Método para obtener piloto por ID consultando la colección completa
-  getPilotoDesdeLista(id: number): Observable<Piloto | undefined> {
     return this.http.get<Piloto[]>(this.pilotosUrl, this.httpOptions)
       .pipe(
+        map((pilotos) => this.normalizarPilotos(pilotos)),
         tap((pilotos) => this.pilotosSubject.next(pilotos)),
         map((pilotos) => pilotos.find((piloto) => piloto.id === id)),
-        catchError(this.handleError<Piloto | undefined>('getPilotoDesdeLista', undefined))
+        catchError(this.handleError<Piloto | undefined>('getPiloto', undefined))
       );
   }
 
   // Método para buscar piloto en caché local
   getPilotoEnCache(id: number): Piloto | undefined {
-    return this.pilotosSubject.value.find((piloto) => piloto.id === id);
+    return this.pilotosSubject.value.find((piloto) => piloto.id === Number(id));
   }
 
   // Método para agregar un piloto
@@ -133,5 +127,39 @@ export class F1Data {
       this.loading.set(false);
       return of(result as T);
     };
+  }
+
+  // Método para normalizar la ruta de imagen de un piloto
+  private normalizarImagenPiloto(imagenUrl: string): string {
+    if (!imagenUrl) {
+      return '';
+    }
+
+    if (/^https?:\/\//i.test(imagenUrl)) {
+      return imagenUrl;
+    }
+
+    if (imagenUrl.startsWith('/public/')) {
+      return imagenUrl.replace('/public/', '/');
+    }
+
+    if (imagenUrl.startsWith('public/')) {
+      return `/${imagenUrl.replace(/^public\//, '')}`;
+    }
+
+    return imagenUrl;
+  }
+
+  // Método para normalizar la entidad piloto
+  private normalizarPiloto(piloto: Piloto): Piloto {
+    return {
+      ...piloto,
+      imagenUrl: this.normalizarImagenPiloto(piloto.imagenUrl)
+    };
+  }
+
+  // Método para normalizar una lista de pilotos
+  private normalizarPilotos(pilotos: Piloto[]): Piloto[] {
+    return pilotos.map((piloto) => this.normalizarPiloto(piloto));
   }
 }

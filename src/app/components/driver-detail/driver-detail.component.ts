@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { F1Data } from '../servicioDATA/f1-data.service';
 import { Piloto } from '../interfaces/piloto.interface';
-import { catchError, finalize, of, timeout } from 'rxjs';
+import { catchError, filter, finalize, map, of, take, timeout } from 'rxjs';
 
 @Component({
   selector: 'app-driver-detail',
@@ -39,8 +39,12 @@ export class DriverDetailComponent implements OnInit {
       return;
     }
 
-    this.f1Data.getPiloto(id)
+    this.f1Data.getPilotos();
+    this.f1Data.pilotos$
       .pipe(
+        filter((pilotos) => pilotos.length > 0),
+        map((pilotos) => pilotos.find((piloto) => piloto.id === id)),
+        take(1),
         timeout(8000),
         catchError(() => of(undefined)),
         finalize(() => {
