@@ -10,7 +10,7 @@
 .driver-detail-container {
   max-width: 500px;
   margin: 2rem auto;
-  background: #fff;
+  background: #2b2b2b;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   padding: 2rem;
@@ -43,6 +43,10 @@
 /* CSS para sección de estadísticas */
 .estadisticas {
   margin: 1rem 0;
+}
+
+.numero-valor {
+  color: #000000;
 }
 
 /* CSS para acciones de detalles */

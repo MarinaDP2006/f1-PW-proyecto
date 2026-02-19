@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { F1Data } from '../servicioDATA/f1-data.service';
-import { Piloto } from '../interfaces/piloto.interface';
+import { Piloto } from '../vistas/piloto.interface';
 
 // Componente de formulario para crear y editar pilotos. Usa Reactive Forms y el mismo flujo para alta y actualización.
 @Component({

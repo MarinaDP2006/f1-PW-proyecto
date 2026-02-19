@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { F1Data } from '../servicioDATA/f1-data.service';
-import { Piloto } from '../interfaces/piloto.interface';
+import { Piloto } from '../vistas/piloto.interface';
 import { catchError, finalize, of } from 'rxjs';
 
 // Componente de detalle de un piloto.

@@ -23,7 +23,7 @@
 
 /* CSS para estructura visual del garaje */
 .garage-layout {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, #1f2329 0%, #2c3138 100%);
   border-radius: 1rem;
   padding: 2rem;
   margin-bottom: 2rem;
@@ -66,7 +66,7 @@
 
 /* CSS para tarjeta de monoplaza */
 .pit-box {
-  background-color: var(--white);
+  background-color: var(--gray-800);
   border: 2px solid var(--gray-300);
   border-radius: 0.75rem;
   padding: 1.5rem;

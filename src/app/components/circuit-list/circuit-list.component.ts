@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { F1Data } from '../servicioDATA/f1-data.service';
-import { Circuito } from '../interfaces/circuito.interface';
+import { Circuito } from '../vistas/circuito.interface';
 
 // Componente que muestra el listado de circuitos de la temporada. Carga la información desde el servicio central de datos.
 @Component({

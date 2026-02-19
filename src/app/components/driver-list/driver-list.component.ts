@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { F1Data } from '../servicioDATA/f1-data.service';
-import { Piloto } from '../interfaces/piloto.interface';
+import { Piloto } from '../vistas/piloto.interface';
 import { Router } from '@angular/router';
 
 // Componente que administra y muestra el listado de pilotos. Incluye búsqueda, navegación a detalle/edición y eliminación.

@@ -1,6 +1,6 @@
 /* CSS para sección principal de inicio */
 .hero-section {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, #1f2329 0%, #2c3138 100%);
   padding: 4rem 0;
   text-align: center;
   border-bottom: 1px solid var(--gray-300);
@@ -75,7 +75,7 @@
 /* CSS para sección de características */
 .features-section {
   padding: 4rem 0;
-  background-color: var(--white);
+  background-color: var(--gray-800);
 }
 
 /* CSS para título de características */
@@ -89,7 +89,7 @@
 
 /* CSS para tarjetas de características */
 .feature-card {
-  background-color: var(--white);
+  background-color: var(--gray-800);
   border: 1px solid var(--gray-300);
   border-radius: 0.75rem;
   padding: 2rem;

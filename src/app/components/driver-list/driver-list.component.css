@@ -100,7 +100,7 @@
 
 /* CSS para tarjeta de piloto */
 .driver-card {
-  background-color: var(--white);
+  background-color: var(--gray-800);
   border: 1px solid var(--gray-300);
   border-radius: 0.75rem;
   overflow: hidden;
@@ -121,7 +121,7 @@
 .card-image {
   padding: 1.5rem 1.5rem 0.5rem;
   text-align: center;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, #1f2329 0%, #2c3138 100%);
 }
 
 /* CSS para foto de piloto */

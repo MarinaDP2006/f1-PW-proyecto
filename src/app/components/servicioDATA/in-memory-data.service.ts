@@ -1,7 +1,7 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Piloto } from '../interfaces/piloto.interface';
-import { Auto } from '../interfaces/auto.interface';
-import { Circuito } from '../interfaces/circuito.interface';
+import { Piloto } from '../vistas/piloto.interface';
+import { Auto } from '../vistas/auto.interface';
+import { Circuito } from '../vistas/circuito.interface';
 
 // Servicio mock de base de datos en memoria. Simula una API REST local para pilotos, autos y circuitos.
 export class InMemoryDataService implements InMemoryDbService {

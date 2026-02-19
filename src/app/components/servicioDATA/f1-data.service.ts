@@ -1,9 +1,9 @@
 import { Injectable, signal } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable, catchError, map, of, tap } from 'rxjs';
-import { Piloto } from '../interfaces/piloto.interface';
-import { Auto } from '../interfaces/auto.interface';
-import { Circuito } from '../interfaces/circuito.interface';
+import { Piloto } from '../vistas/piloto.interface';
+import { Auto } from '../vistas/auto.interface';
+import { Circuito } from '../vistas/circuito.interface';
 
 // Servicio central de acceso a datos de la aplicación. Gestiona pilotos, autos y circuitos consumiendo la API en memoria.
 @Injectable({ providedIn: 'root' })
