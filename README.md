@@ -96,4 +96,4 @@ cd f1-proyectoAngular
 | Editar Piloto | `/driver-form/:id` | Modificar información de piloto |
 | Lista de Autos | `/cars` | Ver todos los monoplazas |
 | Lista de Circuitos | `/circuits` | Ver todas las pistas |
-| Calendario | `/calendario` | Ver próximas carreras de este mes |
+| Calendario | `/calendario` | Ver próximas carreras de este año |
