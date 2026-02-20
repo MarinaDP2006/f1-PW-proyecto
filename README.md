@@ -14,7 +14,7 @@ La aplicación está dedicada al mundo de la **Fórmula 1**, el deporte del auto
 1. **Gestión completa de Pilotos** (CRUD): Los usuarios pueden crear, leer, actualizar y eliminar información de pilotos
 2. **Catálogo de Monoplazas**: Visualización de especificaciones técnicas y características de los autos F1
 3. **Exploración de Circuitos**: Información detallada de los trazados más importantes del campeonato
-4. **Calendario de Carreras**: Visualización mensual con carreras próximas y detalle de pilotos confirmados
+4. **Calendario de Carreras**: Visualización anual 2026 con carreras próximas y detalle de pilotos confirmados
 5. **Navegación intuitiva**: Sistema de navegación fluido entre todas las secciones
 6. **Interfaz moderna**: Diseño responsive inspirado en la estética F1
 
