@@ -8,13 +8,15 @@ La aplicación está dedicada al mundo de la **Fórmula 1**, el deporte del auto
 - **Pilotos**: Información completa de los drivers actuales y históricos
 - **Monoplazas**: Especificaciones técnicas de los autos F1
 - **Circuitos**: Detalles de los trazados más emblemáticos
+- **Calendario**: Próximas carreras, estado temporal y detalle por gran premio
 
 ## Qué hace la aplicación
 1. **Gestión completa de Pilotos** (CRUD): Los usuarios pueden crear, leer, actualizar y eliminar información de pilotos
 2. **Catálogo de Monoplazas**: Visualización de especificaciones técnicas y características de los autos F1
 3. **Exploración de Circuitos**: Información detallada de los trazados más importantes del campeonato
-4. **Navegación intuitiva**: Sistema de navegación fluido entre todas las secciones
-5. **Interfaz moderna**: Diseño responsive inspirado en la estética F1
+4. **Calendario de Carreras**: Visualización mensual con carreras próximas y detalle de pilotos confirmados
+5. **Navegación intuitiva**: Sistema de navegación fluido entre todas las secciones
+6. **Interfaz moderna**: Diseño responsive inspirado en la estética F1
 
 ## Funcionalidades Principales
 ### Gestión de Pilotos (CRUD Completo)
@@ -35,6 +37,18 @@ La aplicación está dedicada al mundo de la **Fórmula 1**, el deporte del auto
 - Características: longitud, tipo, país
 - Descripciones detalladas de cada trazado
 - Solo lectura (edición desde VSCode)
+
+### Calendario de Carreras (Implementado)
+- Vista mensual con días de carrera resaltados
+- Lista de próximas carreras ordenadas por fecha
+- Estado por carrera: hoy, próxima o pasada
+- Detalle de gran premio con pilotos confirmados
+- Ruta disponible en `/calendario`
+
+### Lo que intento hacer (En desarrollo)
+- Mejorar la interfaz gráfica para hacer la aplicación más atractiva
+- Refinar la experiencia visual de las pantallas principales
+- Mantener una estética más consistente entre módulos
 
 ### Sistema de Navegación
 - **Página de Inicio**: Presentación del proyecto
@@ -85,3 +99,4 @@ cd f1-proyectoAngular
 | Editar Piloto | `/driver-form/:id` | Modificar información de piloto |
 | Lista de Autos | `/cars` | Ver todos los monoplazas |
 | Lista de Circuitos | `/circuits` | Ver todas las pistas |
+| Calendario | `/calendario` | Ver próximas carreras y detalle por gran premio |
