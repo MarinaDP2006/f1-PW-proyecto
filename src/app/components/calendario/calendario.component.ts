@@ -4,6 +4,12 @@ import { Carrera, PilotoResumen } from '../vistas/carrera.interface';
 import { DiaCalendario } from '../vistas/dia-calendario.interface';
 import { Piloto } from '../vistas/piloto.interface';
 
+interface MesCalendario {
+  titulo: string;
+  celdasVaciasInicio: number[];
+  dias: DiaCalendario[];
+}
+
 // Componente que muestra calendario mensual de carreras, listado de próximas fechas y detalle de la carrera seleccionada.
 @Component({
   selector: 'app-calendario',
@@ -22,12 +28,8 @@ export class CalendarioComponent implements OnInit {
   // Carrera activa actualmente en el panel de detalle.
   carreraSeleccionada: Carrera | null = null;
 
-  // Días visibles del mes actual (incluye marca de carrera cuando aplica).
-  diasCalendario: DiaCalendario[] = [];
-  // Celdas vacías iniciales para alinear el primer día del mes con el día de semana.
-  celdasVaciasInicio: number[] = [];
-  // Título visible del mes y año del calendario.
-  tituloMes = '';
+  // Colección de meses visibles en el calendario anual.
+  mesesCalendario: MesCalendario[] = [];
 
   // Etiquetas de los días de la semana iniciando en lunes.
   readonly diasSemana = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
@@ -36,7 +38,7 @@ export class CalendarioComponent implements OnInit {
     // Dispara la carga de pilotos desde el servicio.
     this.f1Data.getPilotos();
 
-    // Con los pilotos cargados, arma carreras mock, calcula próximas y prepara el calendario del mes.
+    // Con los pilotos cargados, arma carreras mock, calcula próximas y prepara el calendario anual.
     this.f1Data.pilotos$.subscribe((pilotos) => {
       if (!pilotos.length) {
         return;
@@ -45,9 +47,7 @@ export class CalendarioComponent implements OnInit {
       this.carreras = this.crearCarrerasMock(pilotos);
       this.carrerasProximas = this.obtenerCarrerasProximas(this.carreras);
       this.carreraSeleccionada = this.carrerasProximas[0] ?? null;
-
-      const fechaBase = this.carreraSeleccionada ? new Date(this.carreraSeleccionada.fechaHora) : new Date();
-      this.construirCalendarioMes(fechaBase, this.carreras);
+      this.construirCalendarioAnual(this.carreras);
     });
   }
 
@@ -100,27 +100,42 @@ export class CalendarioComponent implements OnInit {
     return carrera ? this.obtenerEstadoCarrera(carrera) : 'normal';
   }
 
-  // Construye la estructura mensual del calendario y marca qué días tienen carrera.
-  private construirCalendarioMes(fechaBase: Date, carreras: Carrera[]): void {
-    const inicioMes = new Date(fechaBase.getFullYear(), fechaBase.getMonth(), 1);
-    const finMes = new Date(fechaBase.getFullYear(), fechaBase.getMonth() + 1, 0);
+  // Construye la estructura anual entre febrero y octubre de 2026.
+  private construirCalendarioAnual(carreras: Carrera[]): void {
+    const anio = 2026;
+    const mesInicio = 1;
+    const mesFin = 9;
 
-    this.tituloMes = inicioMes.toLocaleDateString('es-ES', {
-      month: 'long',
-      year: 'numeric'
-    });
-    const primerDiaSemana = this.convertirSemanaLunesDomingo(inicioMes.getDay());
-    this.celdasVaciasInicio = Array.from({ length: primerDiaSemana }, (_, indice) => indice);
-    this.diasCalendario = [];
+    this.mesesCalendario = [];
 
-    for (let dia = 1; dia <= finMes.getDate(); dia += 1) {
-      const fecha = new Date(inicioMes.getFullYear(), inicioMes.getMonth(), dia);
-      const carreraDia = carreras.find((carrera) => this.mismaFecha(new Date(carrera.fechaHora), fecha));
+    for (let mes = mesInicio; mes <= mesFin; mes += 1) {
+      const inicioMes = new Date(anio, mes, 1);
+      const finMes = new Date(anio, mes + 1, 0);
 
-      this.diasCalendario.push({
-        fecha,
-        tieneCarrera: Boolean(carreraDia),
-        carreraId: carreraDia?.id
+      const titulo = inicioMes.toLocaleDateString('es-ES', {
+        month: 'long',
+        year: 'numeric'
+      });
+
+      const primerDiaSemana = this.convertirSemanaLunesDomingo(inicioMes.getDay());
+      const celdasVaciasInicio = Array.from({ length: primerDiaSemana }, (_, indice) => indice);
+      const dias: DiaCalendario[] = [];
+
+      for (let dia = 1; dia <= finMes.getDate(); dia += 1) {
+        const fecha = new Date(anio, mes, dia);
+        const carreraDia = carreras.find((carrera) => this.mismaFecha(new Date(carrera.fechaHora), fecha));
+
+        dias.push({
+          fecha,
+          tieneCarrera: Boolean(carreraDia),
+          carreraId: carreraDia?.id
+        });
+      }
+
+      this.mesesCalendario.push({
+        titulo,
+        celdasVaciasInicio,
+        dias
       });
     }
   }
@@ -151,60 +166,90 @@ export class CalendarioComponent implements OnInit {
       };
     };
 
-    // Crea una fecha fija relativa al día actual usando hora y minutos específicos.
-    const crearFecha = (diasOffset: number, hora: number, minutos = 0): string => {
-      const base = new Date();
-      base.setDate(base.getDate() + diasOffset);
-      base.setHours(hora, minutos, 0, 0);
-      return base.toISOString();
+    // Crea una fecha fija dentro del calendario anual 2026.
+    const crearFecha2026 = (mes: number, dia: number, hora: number, minutos = 0): string => {
+      const fecha = new Date(2026, mes - 1, dia, hora, minutos, 0, 0);
+      return fecha.toISOString();
     };
 
-    // Crea una fecha relativa moviendo días y horas desde el momento actual.
-    const crearFechaRelativa = (diasOffset: number, horasOffset = 0): string => {
-      const base = new Date();
-      base.setDate(base.getDate() + diasOffset);
-      base.setHours(base.getHours() + horasOffset);
-      return base.toISOString();
-    };
-
-    // Retorna un listado de grandes premios de ejemplo para poblar la UI.
+    // Retorna un listado de grandes premios de ejemplo entre febrero y octubre de 2026.
     return [
       {
         id: 1,
-        granPremio: 'Gran Premio de Australia',
-        fechaHora: crearFecha(-12, 4, 0),
-        circuito: 'Albert Park',
-        pais: 'Australia',
+        granPremio: 'Gran Premio de Bahréin',
+        fechaHora: crearFecha2026(2, 28, 18, 0),
+        circuito: 'Sakhir',
+        pais: 'Bahréin',
         pilotos: [resumenPiloto(1), resumenPiloto(7), resumenPiloto(5), resumenPiloto(3)]
       },
       {
         id: 2,
+        granPremio: 'Gran Premio de Arabia Saudí',
+        fechaHora: crearFecha2026(3, 21, 20, 0),
+        circuito: 'Jeddah Corniche Circuit',
+        pais: 'Arabia Saudí',
+        pilotos: [resumenPiloto(1), resumenPiloto(4), resumenPiloto(6), resumenPiloto(9)]
+      },
+      {
+        id: 3,
         granPremio: 'Gran Premio de Japón',
-        fechaHora: crearFechaRelativa(0, 2),
+        fechaHora: crearFecha2026(4, 5, 14, 0),
         circuito: 'Suzuka',
         pais: 'Japón',
         pilotos: [resumenPiloto(1), resumenPiloto(4), resumenPiloto(6), resumenPiloto(9)]
       },
       {
-        id: 3,
+        id: 4,
         granPremio: 'Gran Premio de China',
-        fechaHora: crearFecha(8, 8, 0),
+        fechaHora: crearFecha2026(5, 3, 15, 0),
         circuito: 'Shanghai International Circuit',
         pais: 'China',
         pilotos: [resumenPiloto(2), resumenPiloto(8), resumenPiloto(10), resumenPiloto(11)]
       },
       {
-        id: 4,
+        id: 5,
         granPremio: 'Gran Premio de Miami',
-        fechaHora: crearFecha(16, 20, 0),
+        fechaHora: crearFecha2026(6, 14, 19, 30),
         circuito: 'Miami International Autodrome',
         pais: 'Estados Unidos',
         pilotos: [resumenPiloto(3), resumenPiloto(5), resumenPiloto(7), resumenPiloto(12)]
       },
       {
-        id: 5,
+        id: 6,
+        granPremio: 'Gran Premio de Gran Bretaña',
+        fechaHora: crearFecha2026(7, 12, 16, 0),
+        circuito: 'Silverstone',
+        pais: 'Reino Unido',
+        pilotos: [resumenPiloto(6), resumenPiloto(9), resumenPiloto(13), resumenPiloto(15)]
+      },
+      {
+        id: 7,
+        granPremio: 'Gran Premio de Bélgica',
+        fechaHora: crearFecha2026(8, 30, 15, 0),
+        circuito: 'Spa-Francorchamps',
+        pais: 'Bélgica',
+        pilotos: [resumenPiloto(2), resumenPiloto(4), resumenPiloto(8), resumenPiloto(11)]
+      },
+      {
+        id: 8,
+        granPremio: 'Gran Premio de Italia',
+        fechaHora: crearFecha2026(9, 13, 15, 0),
+        circuito: 'Monza',
+        pais: 'Italia',
+        pilotos: [resumenPiloto(1), resumenPiloto(3), resumenPiloto(7), resumenPiloto(10)]
+      },
+      {
+        id: 9,
+        granPremio: 'Gran Premio de Estados Unidos',
+        fechaHora: crearFecha2026(10, 18, 20, 0),
+        circuito: 'Circuit of the Americas',
+        pais: 'Estados Unidos',
+        pilotos: [resumenPiloto(5), resumenPiloto(6), resumenPiloto(12), resumenPiloto(14)]
+      },
+      {
+        id: 10,
         granPremio: 'Gran Premio de Emilia-Romaña',
-        fechaHora: crearFecha(24, 14, 0),
+        fechaHora: crearFecha2026(10, 25, 14, 0),
         circuito: 'Imola',
         pais: 'Italia',
         pilotos: [resumenPiloto(6), resumenPiloto(9), resumenPiloto(13), resumenPiloto(15)]

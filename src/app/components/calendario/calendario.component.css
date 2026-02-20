@@ -44,6 +44,28 @@
   margin-bottom: 0.85rem;
 }
 
+/* CSS para contenedor de calendario anual */
+.calendario-anual {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.75rem;
+}
+
+/* CSS para tarjeta de cada mes */
+.mes-card {
+  background-color: var(--gray-100);
+  border: 1px solid var(--gray-300);
+  border-radius: 0.65rem;
+  padding: 0.65rem;
+}
+
+/* CSS para título de cada mes */
+.mes-titulo {
+  font-size: 0.95rem;
+  margin-bottom: 0.55rem;
+  text-transform: capitalize;
+}
+
 /* CSS para cabecera semanal y rejilla de días */
 .cabecera-semana,
 .rejilla-dias {
@@ -56,22 +78,23 @@
 .semana-dia {
   text-align: center;
   color: var(--gray-600);
-  font-size: 0.85rem;
+  font-size: 0.75rem;
 }
 
 /* CSS para celdas vacías de alineación */
 .dia-vacio {
-  min-height: 2.35rem;
+  min-height: 2rem;
 }
 
 /* CSS para botón de día del calendario */
 .dia {
-  min-height: 2.35rem;
+  min-height: 2rem;
   border: 1px solid var(--gray-300);
   border-radius: 0.5rem;
   background-color: transparent;
   color: var(--gray-700);
   font-weight: 600;
+  font-size: 0.85rem;
   cursor: pointer;
 }
 

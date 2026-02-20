@@ -8,31 +8,38 @@
 
   <!-- Estructura principal en 3 bloques: calendario, próximas carreras y detalle -->
   <div class="calendario-grid">
-    <!-- Bloque de calendario mensual -->
+    <!-- Bloque de calendario anual -->
     <section class="bloque bloque-calendario" aria-labelledby="titulo-calendario-mes">
-      <h2 id="titulo-calendario-mes" class="bloque-titulo">Calendario de {{ tituloMes }}</h2>
+      <h2 id="titulo-calendario-mes" class="bloque-titulo">Calendario anual 2026 (Febrero a Octubre)</h2>
 
-      <!-- Cabecera con días de la semana -->
-      <div class="cabecera-semana" role="row">
-        <span class="semana-dia" *ngFor="let dia of diasSemana">{{ dia }}</span>
-      </div>
+      <!-- Contenedor con mini calendarios por mes -->
+      <div class="calendario-anual">
+        <article class="mes-card" *ngFor="let mes of mesesCalendario">
+          <h3 class="mes-titulo">{{ mes.titulo }}</h3>
 
-      <!-- Rejilla del mes con celdas vacías de ajuste y días clicables -->
-      <div class="rejilla-dias" role="grid">
-        <span class="dia-vacio" *ngFor="let vacio of celdasVaciasInicio" aria-hidden="true"></span>
-        <button
-          type="button"
-          class="dia"
-          *ngFor="let dia of diasCalendario"
-          [class.tiene-carrera]="dia.tieneCarrera"
-          [class.dia-hoy]="estadoDia(dia) === 'hoy'"
-          [class.dia-proxima]="estadoDia(dia) === 'proxima'"
-          [class.dia-pasada]="estadoDia(dia) === 'pasada'"
-          (click)="seleccionarDesdeDia(dia)"
-          [disabled]="!dia.tieneCarrera"
-        >
-          <span>{{ dia.fecha.getDate() }}</span>
-        </button>
+          <!-- Cabecera con días de la semana -->
+          <div class="cabecera-semana" role="row">
+            <span class="semana-dia" *ngFor="let dia of diasSemana">{{ dia }}</span>
+          </div>
+
+          <!-- Rejilla del mes con celdas vacías de ajuste y días clicables -->
+          <div class="rejilla-dias" role="grid">
+            <span class="dia-vacio" *ngFor="let vacio of mes.celdasVaciasInicio" aria-hidden="true"></span>
+            <button
+              type="button"
+              class="dia"
+              *ngFor="let dia of mes.dias"
+              [class.tiene-carrera]="dia.tieneCarrera"
+              [class.dia-hoy]="estadoDia(dia) === 'hoy'"
+              [class.dia-proxima]="estadoDia(dia) === 'proxima'"
+              [class.dia-pasada]="estadoDia(dia) === 'pasada'"
+              (click)="seleccionarDesdeDia(dia)"
+              [disabled]="!dia.tieneCarrera"
+            >
+              <span>{{ dia.fecha.getDate() }}</span>
+            </button>
+          </div>
+        </article>
       </div>
     </section>
 
