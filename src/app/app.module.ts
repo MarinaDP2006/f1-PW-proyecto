@@ -14,6 +14,7 @@ import { DriverDetailComponent } from './components/driver-detail/driver-detail.
 import { DriverFormComponent } from './components/driver-form/driver-form.component';
 import { CarListComponent } from './components/car-list/car-list.component';
 import { CircuitListComponent } from './components/circuit-list/circuit-list.component';
+import { CalendarioComponent } from './components/calendario/calendario.component';
 import { APP_ROUTES } from './app.routes';
 
 // Módulo raíz de Angular. Se registran componentes, dependencias y configuración de rutas.
@@ -27,7 +28,8 @@ import { APP_ROUTES } from './app.routes';
     DriverDetailComponent,
     DriverFormComponent,
     CarListComponent,
-    CircuitListComponent
+    CircuitListComponent,
+    CalendarioComponent
   ],
   // Módulos externos necesarios para formularios, HTTP, enrutamiento y mock de API.
   imports: [

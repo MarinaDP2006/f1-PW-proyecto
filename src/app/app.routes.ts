@@ -6,6 +6,7 @@ import { DriverDetailComponent } from './components/driver-detail/driver-detail.
 import { DriverFormComponent } from './components/driver-form/driver-form.component';
 import { CarListComponent } from './components/car-list/car-list.component';
 import { CircuitListComponent } from './components/circuit-list/circuit-list.component';
+import { CalendarioComponent } from './components/calendario/calendario.component';
 
 // Tabla de rutas principal de la aplicación. Son las vistas disponibles y sus títulos para cada URL.
 export const APP_ROUTES: Routes = [
@@ -23,6 +24,10 @@ export const APP_ROUTES: Routes = [
 	{ path: 'cars', component: CarListComponent, title: 'Monoplazas - F1 Universe' },
 	// Vista de circuitos.
 	{ path: 'circuits', component: CircuitListComponent, title: 'Circuitos - F1 Universe' },
+	// Vista calendario en español.
+	{ path: 'calendario', component: CalendarioComponent, title: 'Calendario - F1 Universe' },
+	// Vista calendario de próximas carreras.
+	{ path: 'calendar', redirectTo: 'calendario', pathMatch: 'full' },
 	// Redirección para rutas no existentes.
 	{ path: '**', redirectTo: '', pathMatch: 'full' }
 ];

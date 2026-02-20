@@ -18,6 +18,18 @@
 	margin: 0 auto;
 }
 
+.app-footer {
+	border-top: 1px solid var(--gray-300);
+	padding: 0.9rem 1rem;
+	background-color: var(--gray-800);
+}
+
+.app-footer p {
+	margin: 0;
+	font-size: 0.9rem;
+	color: var(--gray-600);
+}
+
 @media (max-width: 768px) {
 	.app-main {
 		padding: 1.25rem 0.75rem 2rem;

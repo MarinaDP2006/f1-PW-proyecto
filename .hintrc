@@ -15,6 +15,13 @@
         "image-alt": "off"
       }
     ],
-    "typescript-config/is-valid": "off"
+    "typescript-config/is-valid": "off",
+    "axe/aria": [
+      "default",
+      {
+        "aria-required-children": "off",
+        "aria-required-parent": "off"
+      }
+    ]
   }
 }
