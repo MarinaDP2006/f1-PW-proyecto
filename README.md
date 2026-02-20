@@ -38,17 +38,14 @@ La aplicación está dedicada al mundo de la **Fórmula 1**, el deporte del auto
 - Descripciones detalladas de cada trazado
 - Solo lectura (edición desde VSCode)
 
-### Calendario de Carreras (Implementado)
+### Calendario de Carreras (Implementado recientemente)
 - Vista mensual con días de carrera resaltados
 - Lista de próximas carreras ordenadas por fecha
 - Estado por carrera: hoy, próxima o pasada
-- Detalle de gran premio con pilotos confirmados
 - Ruta disponible en `/calendario`
 
 ### Lo que intento hacer (En desarrollo)
-- Mejorar la interfaz gráfica para hacer la aplicación más atractiva
-- Refinar la experiencia visual de las pantallas principales
-- Mantener una estética más consistente entre módulos
+- Mejorar la interfaz gráfica para hacer la aplicación más atractiva y la experiencia visual de las pantallas principales para que sea más llamativa
 
 ### Sistema de Navegación
 - **Página de Inicio**: Presentación del proyecto
@@ -99,4 +96,4 @@ cd f1-proyectoAngular
 | Editar Piloto | `/driver-form/:id` | Modificar información de piloto |
 | Lista de Autos | `/cars` | Ver todos los monoplazas |
 | Lista de Circuitos | `/circuits` | Ver todas las pistas |
-| Calendario | `/calendario` | Ver próximas carreras y detalle por gran premio |
+| Calendario | `/calendario` | Ver próximas carreras de este mes |
