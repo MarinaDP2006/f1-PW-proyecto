@@ -1,0 +1,69 @@
+<!-- Formulario para crear o editar piloto -->
+<div class="driver-form-container">
+  <h2>{{ isEditMode() ? 'Editar Piloto' : 'Nuevo Piloto' }}</h2>
+  <form [formGroup]="form" (ngSubmit)="guardar()">
+    <div>
+      <label>Nombre:</label>
+      <input formControlName="nombre" />
+      <div *ngIf="f['nombre'].invalid && (f['nombre'].dirty || f['nombre'].touched)" class="error">
+        <span *ngIf="f['nombre'].errors?.['required']">El nombre es obligatorio.</span>
+        <span *ngIf="f['nombre'].errors?.['minlength']">Mínimo 3 caracteres.</span>
+      </div>
+    </div>
+    <div>
+      <label>Equipo:</label>
+      <input formControlName="equipo" />
+      <div *ngIf="f['equipo'].invalid && (f['equipo'].dirty || f['equipo'].touched)" class="error">
+        <span *ngIf="f['equipo'].errors?.['required']">El equipo es obligatorio.</span>
+      </div>
+    </div>
+    <div>
+      <label>Número:</label>
+      <input type="number" formControlName="numero" />
+      <div *ngIf="f['numero'].invalid && (f['numero'].dirty || f['numero'].touched)" class="error">
+        <span *ngIf="f['numero'].errors?.['required']">El número es obligatorio.</span>
+        <span *ngIf="f['numero'].errors?.['min']">Debe ser mayor que 0.</span>
+      </div>
+    </div>
+    <div>
+      <label>Nacionalidad:</label>
+      <input formControlName="nacionalidad" />
+      <div *ngIf="f['nacionalidad'].invalid && (f['nacionalidad'].dirty || f['nacionalidad'].touched)" class="error">
+        <span *ngIf="f['nacionalidad'].errors?.['required']">La nacionalidad es obligatoria.</span>
+      </div>
+    </div>
+    <div>
+      <label>Carreras:</label>
+      <input type="number" formControlName="carreras" />
+    </div>
+    <div>
+      <label>Victorias:</label>
+      <input type="number" formControlName="victorias" />
+    </div>
+    <div>
+      <label>Podios:</label>
+      <input type="number" formControlName="podios" />
+    </div>
+    <div>
+      <label>Poles:</label>
+      <input type="number" formControlName="poles" />
+    </div>
+    <div>
+      <label>Puntos:</label>
+      <input type="number" formControlName="puntos" />
+    </div>
+    <div>
+      <label>Imagen URL:</label>
+      <input formControlName="imagenUrl" placeholder="https://... o /images/pilotos/mi-foto.jpg" />
+      <small class="image-help">
+        Opcional. Si guardas la imagen en <strong> PC LOCAL (descargado de internet)</strong>, puedes usar:
+        <strong>/public/images/pilotos/archivo.jpg</strong> o solo <strong>nombreArchivo.jpg</strong>.
+      </small>
+    </div>
+    <div class="form-actions">
+      <button type="submit" [disabled]="form.invalid || loading()">Guardar</button>
+      <button type="button" (click)="cancelar()">Cancelar</button>
+    </div>
+    <div *ngIf="error()" class="error">{{ error() }}</div>
+  </form>
+</div>
