@@ -1,0 +1,37 @@
+/* Clase .app-shell: estructura raíz de la app y fondo general */
+.app-shell {
+	min-height: 100vh;
+	background-color: var(--light-color);
+}
+
+/* Clase .app-main: zona principal visible debajo del navbar */
+.app-main {
+	min-height: calc(100vh - 60px);
+	padding: 2rem 1rem 3rem;
+	background-color: var(--light-color);
+}
+
+/* Clase .app-content: contenedor centrado para mantener ancho legible */
+.app-content {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.app-footer {
+	border-top: 1px solid var(--gray-300);
+	padding: 0.9rem 1rem;
+	background-color: var(--gray-800);
+}
+
+.app-footer p {
+	margin: 0;
+	font-size: 0.9rem;
+	color: var(--gray-600);
+}
+
+@media (max-width: 768px) {
+	.app-main {
+		padding: 1.25rem 0.75rem 2rem;
+	}
+}

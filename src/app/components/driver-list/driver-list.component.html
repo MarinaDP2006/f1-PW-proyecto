@@ -1,0 +1,71 @@
+<!-- Lista para pilotos -->
+<div class="container">
+  <div class="page-header">
+    <h1 class="page-title">Pilotos de Fórmula 1</h1>
+    <p class="page-description">Explora y gestiona la información de todos los pilotos</p>
+  </div>
+
+  <div class="filters-section">
+    <div class="search-container">
+      <input
+        type="text"
+        [(ngModel)]="filtro"
+        placeholder="Buscar por nombre o equipo"
+        class="form-control search-input"
+      />
+    </div>
+    <a routerLink="/driver-form" class="btn btn-primary add-btn">
+      Agregar Piloto
+    </a>
+  </div>
+
+  <div *ngIf="f1Data.loading()" class="loading-container">
+    <div class="spinner"></div>
+    <p>Cargando pilotos...</p>
+  </div>
+
+  <div *ngIf="f1Data.error()" class="alert alert-danger">
+    <strong>Error:</strong> {{ f1Data.error() }}
+  </div>
+
+  <div class="drivers-grid" *ngIf="!f1Data.loading() && !f1Data.error()">
+    <div class="driver-card" *ngFor="let piloto of pilotosFiltrados">
+      <div class="card-image">
+        <img
+          *ngIf="piloto.imagenUrl && !imagenConError(piloto.id); else sinImagenTarjeta"
+          [src]="piloto.imagenUrl"
+          [alt]="piloto.nombre"
+          class="driver-photo"
+          (error)="marcarImagenConError(piloto.id)"
+        />
+        <ng-template #sinImagenTarjeta>
+          <div class="image-placeholder">Sin imagen</div>
+        </ng-template>
+      </div>
+      <div class="card-content">
+        <h3 class="driver-name">{{ piloto.nombre }}</h3>
+        <div class="driver-info">
+          <span class="info-item team">{{ piloto.equipo }}</span>
+          <span class="info-item number">#{{ piloto.numero }}</span>
+        </div>
+      </div>
+      <div class="card-actions">
+        <button (click)="verDetalle(piloto.id)" class="btn btn-sm btn-primary" title="Ver detalles">
+          Detalles
+        </button>
+        <button (click)="editarPiloto(piloto.id)" class="btn btn-sm btn-secondary" title="Editar piloto">
+          Editar
+        </button>
+        <button (click)="eliminarPiloto(piloto.id)" class="btn btn-sm btn-danger" title="Eliminar piloto">
+          Eliminar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="pilotosFiltrados.length === 0 && !f1Data.loading() && !f1Data.error()" class="empty-state">
+    <h3>No se encontraron pilotos</h3>
+    <p>No hay pilotos que coincidan con tu búsqueda</p>
+    <a routerLink="/driver-form" class="btn btn-primary">Agregar el primer piloto</a>
+  </div>
+</div>

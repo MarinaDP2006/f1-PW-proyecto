@@ -1,0 +1,115 @@
+<!-- Contenedor principal de la página de calendario -->
+<section class="calendario-page">
+  <!-- Encabezado con título y descripción del módulo -->
+  <header class="page-header">
+    <h1 class="page-title">Calendario F1</h1>
+    <p class="page-subtitle">Próximas carreras y detalle de pilotos por gran premio.</p>
+  </header>
+
+  <!-- Estructura principal en 3 bloques: calendario, próximas carreras y detalle -->
+  <div class="calendario-grid">
+    <!-- Bloque de calendario anual -->
+    <section class="bloque bloque-calendario" aria-labelledby="titulo-calendario-mes">
+      <h2 id="titulo-calendario-mes" class="bloque-titulo">Calendario anual 2026 (Febrero a Octubre)</h2>
+
+      <!-- Contenedor con mini calendarios por mes -->
+      <div class="calendario-anual">
+        <article class="mes-card" *ngFor="let mes of mesesCalendario">
+          <h3 class="mes-titulo">{{ mes.titulo }}</h3>
+
+          <!-- Cabecera con días de la semana -->
+          <div class="cabecera-semana" role="row">
+            <span class="semana-dia" *ngFor="let dia of diasSemana">{{ dia }}</span>
+          </div>
+
+          <!-- Rejilla del mes con celdas vacías de ajuste y días clicables -->
+          <div class="rejilla-dias" role="grid">
+            <span class="dia-vacio" *ngFor="let vacio of mes.celdasVaciasInicio" aria-hidden="true"></span>
+            <button
+              type="button"
+              class="dia"
+              *ngFor="let dia of mes.dias"
+              [class.tiene-carrera]="dia.tieneCarrera"
+              [class.dia-hoy]="estadoDia(dia) === 'hoy'"
+              [class.dia-proxima]="estadoDia(dia) === 'proxima'"
+              [class.dia-pasada]="estadoDia(dia) === 'pasada'"
+              (click)="seleccionarDesdeDia(dia)"
+              [disabled]="!dia.tieneCarrera"
+            >
+              <span>{{ dia.fecha.getDate() }}</span>
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Bloque con la lista de carreras futuras -->
+    <section class="bloque bloque-lista" aria-labelledby="titulo-proximas-carreras">
+      <h2 id="titulo-proximas-carreras" class="bloque-titulo">Próximas carreras</h2>
+
+      <!-- Mensaje cuando no hay próximas carreras -->
+      <p *ngIf="!carrerasProximas.length" class="estado-vacio">
+        No hay carreras futuras cargadas.
+      </p>
+
+      <!-- Tarjetas de cada carrera futura -->
+      <button type="button" class="tarjeta-carrera" *ngFor="let carrera of carrerasProximas" [class.seleccionada]="esCarreraSeleccionada(carrera)"
+        (click)="seleccionarCarrera(carrera)">
+        <span class="estado" [class.hoy]="obtenerEstadoCarrera(carrera) === 'hoy'" [class.proxima]="obtenerEstadoCarrera(carrera) === 'proxima'"
+          [class.pasada]="obtenerEstadoCarrera(carrera) === 'pasada'">
+          {{ obtenerEstadoCarrera(carrera) }}
+        </span>
+        <h3>{{ carrera.granPremio }}</h3>
+        <p>{{ carrera.circuito }} · {{ carrera.pais }}</p>
+        <p>{{ carrera.fechaHora | date: 'EEEE d MMM, HH:mm' : '' : 'es' }}</p>
+      </button>
+    </section>
+
+    <!-- Bloque de detalle de la carrera seleccionada -->
+    <section class="bloque bloque-detalle" aria-labelledby="titulo-detalle-carrera">
+      <h2 id="titulo-detalle-carrera" class="bloque-titulo">Detalle de carrera</h2>
+
+      <!-- Contenido principal cuando existe carrera seleccionada -->
+      <div *ngIf="carreraSeleccionada; else sinSeleccion" class="detalle-carrera">
+        <h3>{{ carreraSeleccionada.granPremio }}</h3>
+        <p>
+          {{ carreraSeleccionada.circuito }} · {{ carreraSeleccionada.pais }}
+        </p>
+        <p>
+          {{ carreraSeleccionada.fechaHora | date: 'fullDate' : '' : 'es' }}
+          a las {{ carreraSeleccionada.fechaHora | date: 'HH:mm' }}
+        </p>
+        <h4 class="subtitulo">Pilotos confirmados</h4>
+
+        <!-- Lista de pilotos asignados a la carrera -->
+        <ul class="lista-pilotos">
+          <li *ngFor="let piloto of carreraSeleccionada.pilotos" class="item-piloto">
+            <!-- Avatar con imagen del piloto cuando existe -->
+            <div class="piloto-avatar" *ngIf="piloto.imagen; else avatarTexto">
+              <img [src]="piloto.imagen" [alt]="piloto.nombre" loading="lazy" />
+            </div>
+
+            <!-- Fallback con inicial del piloto cuando no hay imagen -->
+            <ng-template #avatarTexto>
+              <div class="piloto-avatar-texto">{{ piloto.nombre.charAt(0) }}</div>
+            </ng-template>
+
+            <!-- Datos básicos del piloto -->
+            <div>
+              <p class="piloto-nombre">{{ piloto.nombre }}</p>
+              <p class="piloto-equipo">
+                {{ piloto.equipo }}
+                <span *ngIf="piloto.numero"> · #{{ piloto.numero }}</span>
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Estado vacío cuando no hay carrera seleccionada -->
+      <ng-template #sinSeleccion>
+        <p class="estado-vacio">Selecciona una carrera para ver el detalle.</p>
+      </ng-template>
+    </section>
+  </div>
+</section>

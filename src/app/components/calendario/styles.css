@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Segoe UI, Arial, sans-serif;
+  background: #1f2329;
+  color: #e5e7eb;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: #343a40;
+}
+
+.brand {
+  font-weight: 700;
+}
+
+nav {
+  display: flex;
+  gap: 0.75rem;
+}
+
+nav a {
+  color: #d1d5db;
+  text-decoration: none;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.card {
+  background: #343a40;
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+footer {
+  border-top: 1px solid #dee2e6;
+  color: #b6bec9;
+  padding: 0.8rem 1rem;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}

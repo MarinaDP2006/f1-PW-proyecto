@@ -1,0 +1,275 @@
+/* CSS para contenedor principal de calendario */
+.calendario-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* CSS para cabecera del módulo */
+.page-header {
+  background-color: var(--gray-800);
+  border: 1px solid var(--gray-300);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+}
+
+/* CSS para título principal */
+.page-title {
+  margin-bottom: 0.25rem;
+}
+
+/* CSS para subtítulo descriptivo */
+.page-subtitle {
+  margin-bottom: 0;
+}
+
+/* CSS para grilla principal de bloques */
+.calendario-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 1rem;
+}
+
+/* CSS para bloque base reutilizable */
+.bloque {
+  background-color: var(--gray-800);
+  border: 1px solid var(--gray-300);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+/* CSS para títulos de bloque */
+.bloque-titulo {
+  font-size: 1.1rem;
+  margin-bottom: 0.85rem;
+}
+
+/* CSS para contenedor de calendario anual */
+.calendario-anual {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.75rem;
+}
+
+/* CSS para tarjeta de cada mes */
+.mes-card {
+  background-color: var(--gray-100);
+  border: 1px solid var(--gray-300);
+  border-radius: 0.65rem;
+  padding: 0.65rem;
+}
+
+/* CSS para título de cada mes */
+.mes-titulo {
+  font-size: 0.95rem;
+  margin-bottom: 0.55rem;
+  text-transform: capitalize;
+}
+
+/* CSS para cabecera semanal y rejilla de días */
+.cabecera-semana,
+.rejilla-dias {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+/* CSS para nombre de día de la semana */
+.semana-dia {
+  text-align: center;
+  color: var(--gray-600);
+  font-size: 0.75rem;
+}
+
+/* CSS para celdas vacías de alineación */
+.dia-vacio {
+  min-height: 2rem;
+}
+
+/* CSS para botón de día del calendario */
+.dia {
+  min-height: 2rem;
+  border: 1px solid var(--gray-300);
+  border-radius: 0.5rem;
+  background-color: transparent;
+  color: var(--gray-700);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+/* CSS para día deshabilitado sin carrera */
+.dia:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* CSS para día que contiene carrera */
+.dia.tiene-carrera {
+  border-color: var(--primary-color);
+}
+
+/* CSS para estado de carrera de hoy */
+.dia-hoy {
+  border-color: var(--warning-color);
+  background-color: rgba(255, 193, 7, 0.2);
+}
+
+/* CSS para estado de carrera próxima */
+.dia-proxima {
+  border-color: var(--info-color);
+}
+
+/* CSS para estado de carrera pasada */
+.dia-pasada {
+  border-color: var(--secondary-color);
+  opacity: 0.75;
+}
+
+/* CSS para contenedor de la lista de carreras */
+.bloque-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* CSS para tarjeta individual de carrera */
+.tarjeta-carrera {
+  text-align: left;
+  background-color: var(--gray-100);
+  border: 1px solid var(--gray-300);
+  border-radius: 0.65rem;
+  padding: 0.75rem;
+  color: var(--gray-700);
+  cursor: pointer;
+}
+
+/* CSS para título dentro de la tarjeta */
+.tarjeta-carrera h3 {
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+}
+
+/* CSS para textos auxiliares dentro de tarjeta */
+.tarjeta-carrera p {
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+/* CSS para tarjeta actualmente seleccionada */
+.tarjeta-carrera.seleccionada {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+/* CSS para badge de estado de carrera */
+.estado {
+  display: inline-flex;
+  text-transform: capitalize;
+  font-size: 0.75rem;
+  border-radius: 999px;
+  padding: 0.15rem 0.55rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+/* CSS para badge de estado hoy */
+.estado.hoy {
+  background-color: rgba(255, 193, 7, 0.2);
+  color: var(--warning-color);
+}
+
+/* CSS para badge de estado próxima */
+.estado.proxima {
+  background-color: rgba(23, 162, 184, 0.2);
+  color: var(--info-color);
+}
+
+/* CSS para badge de estado pasada */
+.estado.pasada {
+  background-color: rgba(108, 117, 125, 0.2);
+  color: var(--gray-500);
+}
+
+/* CSS para párrafos del detalle de carrera */
+.detalle-carrera p {
+  margin-bottom: 0.35rem;
+}
+
+/* CSS para subtítulo de sección de pilotos */
+.subtitulo {
+  margin: 1rem 0 0.75rem;
+  font-size: 0.98rem;
+}
+
+/* CSS para lista de pilotos confirmados */
+.lista-pilotos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* CSS para ítem de piloto en la lista */
+.item-piloto {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--gray-100);
+  border: 1px solid var(--gray-300);
+  border-radius: 0.6rem;
+  padding: 0.55rem;
+}
+
+/* CSS para avatar con imagen e inicial */
+.piloto-avatar,
+.piloto-avatar-texto {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* CSS para imagen dentro del avatar */
+.piloto-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* CSS para avatar textual de respaldo */
+.piloto-avatar-texto {
+  display: grid;
+  place-items: center;
+  background-color: var(--primary-color);
+  color: var(--white);
+  font-weight: 700;
+}
+
+/* CSS para nombre y equipo del piloto */
+.piloto-nombre,
+.piloto-equipo {
+  margin: 0;
+}
+
+/* CSS para texto secundario del equipo */
+.piloto-equipo {
+  color: var(--gray-600);
+  font-size: 0.85rem;
+}
+
+/* CSS para mensajes de estado vacío */
+.estado-vacio {
+  color: var(--gray-600);
+  margin: 0;
+}
+
+/* CSS para versión responsive en pantallas medianas */
+@media (max-width: 1100px) {
+  .calendario-grid {
+    grid-template-columns: 1fr;
+  }
+}
