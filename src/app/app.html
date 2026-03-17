@@ -1,0 +1,18 @@
+<!-- Clase app-shell: contenedor principal de toda la aplicación -->
+<div class="app-shell">
+  <app-navbar></app-navbar>
+
+  <!-- Clase app-main: área principal donde se renderiza el contenido de rutas -->
+  <main class="app-main" role="main">
+    <!-- Clase app-content: contenedor centrado con ancho máximo para el contenido -->
+    <div class="app-content">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+
+  <footer class="app-footer" role="contentinfo">
+    <div class="app-content">
+      <p>F1 Universe Dashboard · Alumno</p>
+    </div>
+  </footer>
+</div>
